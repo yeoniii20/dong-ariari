@@ -1,9 +1,10 @@
 "use client";
 import { useUserStore } from "@/app/providers/user-store-provider";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SignInPage() {
-  const { signIn, accessToken } = useUserStore((state) => state);
+  const { signIn, accessToken, signOut } = useUserStore((state) => state);
   const router = useRouter();
 
   const handleSignInClick = () => {
@@ -13,6 +14,10 @@ export default function SignInPage() {
     });
     router.back();
   };
+
+  useEffect(() => {
+    signOut();
+  }, [signOut]);
 
   return (
     <div>
