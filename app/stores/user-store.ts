@@ -1,3 +1,4 @@
+import { devtools, persist } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 
 export type UserState = {
@@ -32,14 +33,23 @@ export const initUserStore = (): UserState => {
 };
 
 export const createUserStore = (initState: UserState = defaultInitState) => {
-  return createStore<UserStore>()((set) => ({
-    ...initState,
-    signIn: () =>
-      set((state) => ({
-        ...state,
-        accessToken: state.accessToken,
-        refreshToken: state.refreshToken,
-      })),
-    signOut: () => set(() => initState),
-  }));
+  return createStore<UserStore>()(
+    devtools(
+      persist(
+        (set, get) => ({
+          ...initState,
+          signIn: ({ accessToken, refreshToken }) =>
+            set((state) => ({
+              ...state,
+              accessToken: accessToken,
+              refreshToken: refreshToken,
+            })),
+          signOut: () => set(() => initState),
+        }),
+        {
+          name: "ariari-storage",
+        }
+      )
+    )
+  );
 };
