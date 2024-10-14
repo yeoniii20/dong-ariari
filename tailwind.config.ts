@@ -23,7 +23,7 @@ const config: Config = {
         hover: "#F4F6FA",
         pressed: "#E8EBF1",
         searchbar: "#F2F4F6",
-        searchbarborder: "#406CAC",
+        searchbarborder: "#7495B6",
         primary_hover: "#4188EB",
         primary_pressed: "#4080DB",
         pulldownmenutext: "#404040",
