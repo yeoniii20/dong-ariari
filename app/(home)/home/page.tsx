@@ -1,9 +1,13 @@
-"use client";
+import ClubRanking from "@/pages/home/clubRanking";
+import LatestRecruitment from "@/pages/home/latestRecruitment";
+import PopularRecruitment from "@/pages/home/popularRecruitment";
 
 const Home = () => {
   return (
-    <div className="h-[2000px] w-full bg-gray-200">
-      <div className="h-64 w-64 bg-blue-500 ">스크롤 테스트</div>
+    <div className="w-full bg-gray-200">
+      <ClubRanking />
+      <PopularRecruitment />
+      <LatestRecruitment />
     </div>
   );
 };
