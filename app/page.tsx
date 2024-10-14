@@ -1,10 +1,10 @@
-import { UserStoreProvider } from "@/app/providers/user-store-provider";
-import { HomePage } from "@/app/home-page";
+import { UserStoreProvider } from "@/providers/user-store-provider";
+import Home from "./(home)/home/page";
 
-export default function Home() {
+export default function Page() {
   return (
     <UserStoreProvider>
-      <HomePage />
+      <Home />
     </UserStoreProvider>
   );
 }

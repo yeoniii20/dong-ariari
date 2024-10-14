@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { UserStoreProvider } from "@/providers/user-store-provider";
+import Layout from "@/layout/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={inter.className}>
-        <UserStoreProvider>{children}</UserStoreProvider>
+        <UserStoreProvider>
+          <Layout>{children}</Layout>
+        </UserStoreProvider>
       </body>
     </html>
   );
