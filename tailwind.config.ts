@@ -1,17 +1,36 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      // fontFamily: {
+      //   pretendard: [''],
+      // },
+      colors: {
+        background: "#fff",
+        text1: "#000",
+        subtext1: "#4B4F52",
+        subtext2: "#7D8595",
+        unselected: "#A1A6B0",
+        icon: "#777F90",
+        menuborder: "#E3E3E3",
+        hover: "#F4F6FA",
+        pressed: "#E8EBF1",
+        searchbar: "#F2F4F6",
+        searchbarborder: "#406CAC",
+        primary_hover: "#4188EB",
+        primary_pressed: "#4080DB",
+        pulldownmenutext: "#404040",
+        primary: "#589BFF",
+        sub1: "#93BEFF",
+        sub2: "#8A84FE",
+        point: "#D1F75D",
       },
     },
   },
