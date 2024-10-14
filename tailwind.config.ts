@@ -3,9 +3,9 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   darkMode: "class",
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -31,6 +31,10 @@ const config: Config = {
         sub1: "#93BEFF",
         sub2: "#8A84FE",
         point: "#D1F75D",
+        button1: "#d4dbe5",
+        button2: "#c6d4e8",
+        button3: "#bfd1e8",
+        button_border: "#889cd6",
       },
     },
   },
