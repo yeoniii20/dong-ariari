@@ -7,6 +7,12 @@ interface TooltipProps {
   children: React.ReactNode;
 }
 
+/**
+ *
+ * @param message 툴팁 메세지
+ * @param children 호버 했을 때 툴팁이 보여져야하는 컴포넌트
+ * @returns
+ */
 const Tooltip = ({ message, children }: TooltipProps) => {
   return (
     <div className="relative flex items-center group">

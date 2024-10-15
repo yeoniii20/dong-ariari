@@ -9,6 +9,13 @@ interface RecentSearchTermDropdownProps {
   onRemoveSearchItem: (index: number) => void;
 }
 
+/**
+ * 최근 검색어 api 연동 후 추가 수정 필요
+ * @param recentSearches 최근 검색어 목록
+ * @param onRecentSearchClick 최근 검색어 클릭 핸들러
+ * @param onRemoveSearchItem 최근 검색어 삭제 핸들러
+ * @returns
+ */
 const RecentSearchTermDropdown = ({
   recentSearches,
   onRecentSearchClick,

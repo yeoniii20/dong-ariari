@@ -7,6 +7,12 @@ interface MenuProps {
   onClose: () => void;
 }
 
+/**
+ * 
+ * @param optionData 드롭다운 목록 데이터
+ * @param onClose 드롭다운 닫기 핸들러
+ * @returns 
+ */
 const UserDropdown = ({ optionData, onClose }: MenuProps) => {
   const router = useRouter();
 

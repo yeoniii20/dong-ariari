@@ -11,18 +11,25 @@ interface SearchInputProps {
   showRecentSearches?: boolean;
 }
 
+/**
+ *
+ * @param onSearch 검색 핸들러
+ * @param className 추가 style 코드
+ * @param showRecentSearches 최근 검색어 표출 여부
+ * @returns
+ */
 const SearchInput = ({
   onSearch,
   className,
   showRecentSearches,
 }: SearchInputProps) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState<string>("");
   const [recentSearches, setRecentSearches] = useState<string[]>([
     "최근 검색어 1",
     "최근 검색어 2",
     "최근 검색어 3",
   ]);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleSearch = () => {
     if (inputValue.trim()) {
