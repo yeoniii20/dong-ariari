@@ -4,3 +4,12 @@ export const HEADER_MENU = [
   { id: 2, title: "동아리 지원", path: "/application" },
   { id: 3, title: "커뮤니티", path: "/community" },
 ];
+
+export const USER_MENU = [
+  { id: 0, label: "관심 모집공고", path: "/" },
+  { id: 1, label: "관심 동아리", path: "/" },
+  { id: 2, label: "회원정보 수정", path: "/" },
+  { id: 3, label: "신고하기", path: null },
+  { id: 4, label: "차단 관리", path: "/" },
+  { id: 5, label: "로그아웃", path: null },
+];

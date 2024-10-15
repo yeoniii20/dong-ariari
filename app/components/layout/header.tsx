@@ -1,46 +1,54 @@
 "use client";
 
+import { useContext } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "@/images/logo/logo.svg";
-import Button from "../button";
-import SearchInput from "../searchInput";
-import Tab from "../tab";
+import SearchInput from "../input/searchInput";
+import SearchTermContext from "@/context/searchTermContext";
+import Tooltip from "../tooltip";
+import User from "../user";
+import HeaderTab from "../tab/headerTab";
+import SmallButton from "../button/smallButton";
 
 const Header = () => {
   const router = useRouter();
-
-  const handleSearch = (searchTerm: string) => {
-    console.log("검색어 :", searchTerm);
-  };
+  const { setSearchTerm } = useContext(SearchTermContext);
 
   const handleHomeClick = () => {
     router.push("/");
   };
 
+  const handleSearch = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
+    console.log("검색어 :", searchTerm);
+  };
+
   return (
-    <header className="w-full bg-white px-8 shadow-md">
-      <div className="flex items-center justify-between h-[80px]">
-        <div className="flex items-center">
-          <Image
-            src={logo}
-            alt="Logo"
-            width={205}
-            height={52}
-            onClick={handleHomeClick}
-            className="cursor-pointer"
-          />
-        </div>
-        <div className="flex items-center space-x-6">
-          <span className="text-gray-500 cursor-pointer">
-            로그인 후 이용하기
-          </span>
-          <Button title={"동아리 관리"} onClick={() => {}} />
+    <header className="w-full bg-background space-y-8 pt-11">
+      <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto px-4 lg:px-8">
+        <Image
+          src={logo}
+          alt="Logo"
+          width={205}
+          height={52}
+          onClick={handleHomeClick}
+          className="cursor-pointer"
+        />
+        <div className="flex space-x-4">
+          <User />
+          <Tooltip message="동아리 관리 버튼을 설명하는 헬프 텍스트 입니다. 000 (최대 55자)">
+            <SmallButton title={"동아리 관리"} onClick={() => {}} />
+          </Tooltip>
         </div>
       </div>
-      <div className="flex items-center justify-between w-full pt-4">
-        <Tab />
-        <SearchInput onSearch={handleSearch} />
+      <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto px-4 lg:px-8">
+        <HeaderTab />
+        <SearchInput
+          onSearch={handleSearch}
+          className="mb-[13px]"
+          showRecentSearches={true}
+        />
       </div>
     </header>
   );
