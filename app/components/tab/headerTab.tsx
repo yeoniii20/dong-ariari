@@ -47,7 +47,7 @@ const HeaderTab = () => {
           <div
             key={item.id}
             onClick={() => handleNavigation(item.path, item.id)}
-            className={`flex flex-col items-center cursor-pointer text-lg font-semibold transition-colors duration-300 mb-[29px] ${
+            className={`flex flex-col items-center cursor-pointer text-xl font-semibold transition-colors duration-300 mb-[29px] ${
               activeId === item.id ? "text-text1" : "text-unselected"
             }`}
           >
