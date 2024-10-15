@@ -9,9 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   pretendard: [''],
-      // },
       colors: {
         background: "#fff",
         text1: "#000",
@@ -35,6 +32,9 @@ const config: Config = {
         button2: "#c6d4e8",
         button3: "#bfd1e8",
         button_border: "#889cd6",
+      },
+      boxShadow: {
+        default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",
       },
     },
   },
