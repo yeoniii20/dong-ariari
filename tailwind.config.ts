@@ -32,6 +32,10 @@ const config: Config = {
         button2: "#c6d4e8",
         button3: "#bfd1e8",
         button_border: "#889cd6",
+        selectedoption_default: "rgba(88, 155, 255, 0.1)",
+        selectedoption_hover: "rgba(88, 155, 255, 0.2)",
+        selectedoption_pressed: "rgba(88, 155, 255, 0.25)",
+        selectedoptionborder: "rgba(88, 155, 255, 0.7)",
       },
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",

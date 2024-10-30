@@ -1,8 +1,10 @@
 export const Affiliation_Type = [
+  { id: 0, label: "소속" },
   { id: 1, label: "연합" },
   { id: 2, label: "교내" },
 ];
 export const Area_Type = [
+  { id: 0, label: "분야" },
   { id: 1, label: "전체" },
   { id: 2, label: "문화예술" },
   { id: 3, label: "봉사" },
