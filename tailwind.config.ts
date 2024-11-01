@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         background: "#fff",
+        black: "#000",
         text1: "#000",
         subtext1: "#4B4F52",
         subtext2: "#7D8595",
@@ -35,6 +36,61 @@ const config: Config = {
       },
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",
+      },
+      fontSize: {
+        h1_contents_title: [
+          "28px",
+          {
+            fontWeight: 600,
+          },
+        ],
+        h2: [
+          "22px",
+          {
+            fontWeight: 600,
+          },
+        ],
+        h3: [
+          "20px",
+          {
+            fontWeight: 600,
+          },
+        ],
+        h4: [
+          "18px",
+          {
+            lineHeight: "150%",
+          },
+        ],
+        h4_sb: [
+          "18px",
+          {
+            fontWeight: 600,
+            lineHeight: "18px",
+          },
+        ],
+        body1_r: [
+          "16px",
+          {
+            lineHeight: "150%",
+          },
+        ],
+        body1_m: [
+          "16px",
+          {
+            fontWeight: 500,
+            lineHeight: "150%",
+          },
+        ],
+        body1_sb: [
+          "16px",
+          {
+            fontWeight: 600,
+          },
+        ],
+        body2_m: ["15px", { fontWeight: 500, lineHeight: "150%" }],
+        body3_m: ["14px", { fontWeight: 500, lineHeight: "150%" }],
+        body4_r: ["12px", {}],
       },
     },
   },
