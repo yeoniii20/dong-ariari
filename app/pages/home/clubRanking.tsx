@@ -5,7 +5,12 @@ import SearchTermContext from "@/context/searchTermContext";
 
 import PullDown from "@/components/pulldown/pullDown";
 
-import { Affiliation_Type, Area_Type } from "@/data/pulldown";
+import {
+  Affiliation_Type,
+  Area_Type,
+  Field_Type,
+  Target_Type,
+} from "@/data/pulldown";
 import CardList from "@/components/card/cardList";
 
 const dummyCardData = [
@@ -64,8 +69,10 @@ const ClubRanking = () => {
       <div className="flex justify-between items-center">
         <div className="text-[28px] font-bold ">실시간 동아리 랭킹</div>
         <div className="flex gap-[16px]">
-          <PullDown optionData={Affiliation_Type} />
-          <PullDown optionData={Area_Type} />
+          <PullDown optionData={Affiliation_Type} type="singleSelect" />
+          <PullDown optionData={Field_Type} type="singleSelect" />
+          <PullDown optionData={Area_Type} type="multiSelect" />
+          <PullDown optionData={Target_Type} type="multiSelect" />
         </div>
       </div>
 

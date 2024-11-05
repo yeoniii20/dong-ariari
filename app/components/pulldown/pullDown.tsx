@@ -4,22 +4,26 @@ import { useEffect, useRef, useState } from "react";
 import PulldownOption from "@/components/pulldown/pullDownOption";
 import Image from "next/image";
 import keyboardArrowDown from "@/images/icon/keyboardArrowDown.svg";
+import RadioStyleCheckboxGroup from "./pullDownMultiSelectOption";
 
 interface PulldownProps {
   optionData: { id: number; label: string }[];
+  type: "singleSelect" | "multiSelect";
 }
 
-const PullDown = ({ optionData }: PulldownProps) => {
+const PullDown = ({ optionData, type }: PulldownProps) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(optionData[0].label);
 
-  const isSelected = selectedOption !== optionData[0].label;
+  const [selectedOptions, setSelectedOptions] = useState<string[]>(
+    type === "singleSelect" ? [] : []
+  );
+
+  const isSelected = selectedOptions.length > 0;
 
   const toggleDropdown = () => {
-    // 열려있는 상태에서 클릭시 버튼 focus 아웃
     setIsDropdownOpen((prev) => {
       const nextState = !prev;
       if (!nextState) buttonRef.current?.blur();
@@ -28,8 +32,16 @@ const PullDown = ({ optionData }: PulldownProps) => {
   };
 
   const handleMenuClick = (label: string) => {
-    setSelectedOption(label);
-    toggleDropdown();
+    if (type === "singleSelect") {
+      setSelectedOptions([label]);
+      toggleDropdown();
+    } else {
+      setSelectedOptions((prevSelectedOptions) =>
+        prevSelectedOptions.includes(label)
+          ? prevSelectedOptions.filter((option) => option !== label)
+          : [...prevSelectedOptions, label]
+      );
+    }
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -40,6 +52,21 @@ const PullDown = ({ optionData }: PulldownProps) => {
       setIsDropdownOpen(false);
       buttonRef.current?.blur();
     }
+  };
+
+  const selectedOptionText = selectedOptions[0]
+    ? type === "singleSelect" ||
+      (type === "multiSelect" && selectedOptions.length === 1)
+      ? selectedOptions[0]
+      : `${selectedOptions[0]} 외 ${selectedOptions.length - 1}`
+    : optionData[0].label;
+
+  const getDynamicStyle = () => {
+    const length = selectedOptionText.replace(/\s/g, "").length;
+    if (length <= 3) return "w-[50px] text-[15px]";
+    if (length === 4) return "w-[52px] text-[14px]";
+    if (length === 5) return "w-[64px] text-[14px]";
+    return "w-[76px] text-[14px]";
   };
 
   useEffect(() => {
@@ -55,7 +82,7 @@ const PullDown = ({ optionData }: PulldownProps) => {
         ref={buttonRef}
         onClick={toggleDropdown}
         className={`relative flex items-center justify-between 
-          pl-[19px] pr-[14px] py-[8px]
+          pl-[20px] pr-[14px] py-[8px]
           cursor-pointer rounded-[30px] border 
           ${
             isSelected
@@ -65,22 +92,30 @@ const PullDown = ({ optionData }: PulldownProps) => {
         `}
       >
         <span
-          className={`text-base min-w-[56px] text-left ${
+          className={`text-base text-left ${
             isSelected ? "text-primary" : "text-text1"
-          }`}
+          } ${getDynamicStyle()}`}
         >
-          {selectedOption}
+          {selectedOptionText}
         </span>
+
         <Image src={keyboardArrowDown} alt="keyboardArrowDown" />
       </button>
 
-      {isDropdownOpen && (
-        <PulldownOption
-          selectedOption={selectedOption}
-          optionData={optionData.slice(1)}
-          handleMenuClick={handleMenuClick}
-        />
-      )}
+      {isDropdownOpen &&
+        (type === "singleSelect" ? (
+          <PulldownOption
+            selectedOption={selectedOptions[0]}
+            optionData={optionData.slice(1)}
+            handleMenuClick={handleMenuClick}
+          />
+        ) : (
+          <RadioStyleCheckboxGroup
+            selectedOptions={selectedOptions}
+            optionData={optionData.slice(1)}
+            handleMenuClick={handleMenuClick}
+          />
+        ))}
     </div>
   );
 };

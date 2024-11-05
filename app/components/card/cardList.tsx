@@ -33,12 +33,16 @@ const CardList = ({ cards }: CardListProps) => {
         return (
           <div key={card.id} className={`w-full rounded-lg ${gradientClass}`}>
             <div
-              className={`${isTopRank && "p-8"}  flex items-center gap-[30px]`}
+              className={`flex items-center gap-[30px] ${
+                isTopRank && "p-8 gap-[28px]"
+              }`}
             >
               {isTopRank ? (
-                <div className="text-[58px]">{card.rank}</div>
+                <div className="w-[38px] text-[58px]  leading-none">
+                  {card.rank}
+                </div>
               ) : (
-                <div className="flex items-center gap-[27px]">
+                <div className="flex items-center gap-[26px]">
                   <Image
                     src={card.imageSrc || no_image}
                     alt={`${card.title} 이미지`}
@@ -48,11 +52,11 @@ const CardList = ({ cards }: CardListProps) => {
                 </div>
               )}
 
-              <div className="flex-1 overflow-hidden gap-2">
+              <div className="flex-1 overflow-hidden">
                 <div
                   className={`${
                     isTopRank ? "text-[22px]" : "text-xl"
-                  } font-semibold truncate`}
+                  } font-semibold truncate mb-2`}
                 >
                   {card.title}
                 </div>

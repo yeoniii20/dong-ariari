@@ -15,13 +15,14 @@ const PulldownOption = ({
     {optionData.map((item, index) => (
       <div
         key={item.id}
-        className={`relative flex justify-center items-center text-base text-subtext1 cursor-pointer hover:bg-hover hover:mx-[0px] hover:text-subtext1 pressed:bg-pressed
+        className={`relative flex justify-center items-center text-base text-subtext1 cursor-pointer  pressed:bg-pressed
             ${index === 0 ? "rounded-t-lg" : ""}
             ${index === optionData.length - 1 ? "rounded-b-lg" : ""}
-            ${index !== 0 ? "border-t border-menuborder mx-[5px]" : ""}
+            ${index !== 0 ? "border-t border-menuborder " : ""}
             ${
-              selectedOption === item.label &&
-              `border border-primary bg-selectedoption_default text-primary mx-0 hover:border-transparent`
+              selectedOption === item.label
+                ? `border border-primary bg-selectedoption_default text-primary mx-[0px]`
+                : `mx-[5px] hover:bg-hover hover:mx-[0px] hover:text-subtext1`
             }          
             `}
         onMouseDown={(e) => e.preventDefault()}
