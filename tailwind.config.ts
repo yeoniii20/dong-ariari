@@ -39,57 +39,57 @@ const config: Config = {
       },
       fontSize: {
         h1_contents_title: [
-          "28px",
+          "24px",
           {
             fontWeight: 600,
           },
         ],
         h2: [
-          "22px",
+          "21px",
           {
             fontWeight: 600,
           },
         ],
         h3: [
-          "20px",
+          "18px",
           {
             fontWeight: 600,
           },
         ],
         h4: [
-          "18px",
+          "16px",
           {
             lineHeight: "150%",
           },
         ],
         h4_sb: [
-          "18px",
+          "16px",
           {
             fontWeight: 600,
             lineHeight: "18px",
           },
         ],
         body1_r: [
-          "16px",
+          "15px",
           {
             lineHeight: "150%",
           },
         ],
         body1_m: [
-          "16px",
+          "15px",
           {
             fontWeight: 500,
             lineHeight: "150%",
           },
         ],
         body1_sb: [
-          "16px",
+          "15px",
           {
             fontWeight: 600,
           },
         ],
-        body2_m: ["15px", { fontWeight: 500, lineHeight: "150%" }],
-        body3_m: ["14px", { fontWeight: 500, lineHeight: "150%" }],
+        body2_m: ["14px", { fontWeight: 500, lineHeight: "150%" }],
+        body3_m: ["13px", { fontWeight: 500, lineHeight: "150%" }],
         body4_r: ["12px", {}],
       },
     },
