@@ -24,6 +24,7 @@ const config: Config = {
         searchbarborder: "#7495B6",
         primary_hover: "#4188EB",
         primary_pressed: "#4080DB",
+        card_pressed: "#3569B7",
         pulldownmenutext: "#404040",
         primary: "#589BFF",
         sub1: "#93BEFF",
