@@ -11,7 +11,7 @@ const RecruitmentItem = ({}) => {
 
   return (
     <div
-      className="flex flex-col w-full cursor-pointer hover:scale-110 transition-transform"
+      className="group relative flex flex-col w-full cursor-pointer hover:scale-110 transition-transform"
       onClick={handleItemClick}
     >
       <div className="relative w-100 flex justify-center align-center aspect-square bg-menuborder">
@@ -22,23 +22,26 @@ const RecruitmentItem = ({}) => {
           objectFit="cover"
           className="h-auto my-auto pointer-events-none user-select-none"
         ></Image>
-        <div className="absolute flex justify-center bottom-[16px]">
+        <div className="absolute bottom-[-1px] w-full h-3/5 bg-gradient-to-t from-card_pressed to-transparent delay-10 duration-200 opacity-0 group-hover:opacity-100"></div>
+        <div className="absolute bottom-0 w-full flex justify-center flex-row items-end pb-[15px]">
           <div className="bg-black/50 px-[12px] py-[6px] rounded-full user-select-none">
             <p className="text-body1_sb text-background">D-12</p>
           </div>
         </div>
       </div>
 
-      <div className="px-[14px] py-[22px]">
+      <div className="px-[14px] py-[22px] transition duration-200 group-hover:bg-card_pressed">
         <div className="flex justify-between align-center">
-          <p className="text-h3 text-text1">동아리 이름</p>
+          <p className="text-h3 text-text1 group-hover:text-background transition duration-200">
+            동아리 이름
+          </p>
           <FavoriteToggle isActive={false} />
         </div>
-        <p className="text-body1_r text-subtext1 mt-[14px]">
+        <p className="text-body1_r text-subtext1 mt-[14px] group-hover:text-background transition duration-200">
           모집공고 제목 혹은 <br />
           동아리 한줄 소개 작성
         </p>
-        <p className="text-body2_m text-subtext1 mt-[20px]">
+        <p className="text-body2_m text-subtext1 mt-[20px] group-hover:text-background transition druation-200">
           소속 | 분야 | 지역 | 대상
         </p>
       </div>
