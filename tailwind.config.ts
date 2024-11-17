@@ -36,6 +36,11 @@ const config: Config = {
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",
       },
+      screens: {
+        sm: "360px",
+        md: "768px",
+        lg: "1024px",
+      },
     },
   },
   plugins: [],
