@@ -52,11 +52,10 @@ const Header = () => {
           <HeaderTab />
           <div className="flex w-full items-center space-x-4">
             <SearchInput onSearch={handleSearch} showRecentSearches={true} />
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 md:hidden">
               <div className="rounded-full w-7 h-7 bg-[#CBCBCB]" />
               <div className="rounded-full w-7 h-7 bg-[#CBCBCB]" />
             </div>
-            {/* <MoblieUser /> */}
           </div>
         </div>
       </div>
