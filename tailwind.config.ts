@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pretendard: ["Pretendard", "sans-serif"],
+      },
+      fontSize: {
+        19: "19px",
+        15: "15px",
+        13: "13px",
+        10: "10px",
+      },
       colors: {
         background: "#fff",
         text1: "#000",
