@@ -25,30 +25,32 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-background space-y-8 pt-11">
-      <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto px-4 lg:px-8">
-        <Image
-          src={logo}
-          alt="Logo"
-          width={205}
-          height={52}
-          onClick={handleHomeClick}
-          className="cursor-pointer"
-        />
-        <div className="flex space-x-4">
-          <User />
-          <Tooltip message="동아리 관리 버튼을 설명하는 헬프 텍스트 입니다. 000 (최대 55자)">
-            <SmallButton title={"동아리 관리"} onClick={() => {}} />
-          </Tooltip>
+    <header className="w-full flex justify-center bg-background pt-11">
+      <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-5 space-y-8">
+        <div className="flex justify-between items-center w-full">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={205}
+            height={52}
+            onClick={handleHomeClick}
+            className="cursor-pointer"
+          />
+          <div className="flex space-x-4">
+            <User />
+            <Tooltip message="동아리 관리 버튼을 설명하는 헬프 텍스트 입니다. 000 (최대 55자)">
+              <SmallButton title={"동아리 관리"} onClick={() => {}} />
+            </Tooltip>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto px-4 lg:px-8">
-        <HeaderTab />
-        <SearchInput
-          onSearch={handleSearch}
-          className="mb-[13px]"
-          showRecentSearches={true}
-        />
+        <div className="flex justify-between items-center w-full">
+          <HeaderTab />
+          <SearchInput
+            onSearch={handleSearch}
+            className="mb-[13px]"
+            showRecentSearches={true}
+          />
+        </div>
       </div>
     </header>
   );
