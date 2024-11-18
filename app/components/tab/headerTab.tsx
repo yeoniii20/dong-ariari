@@ -41,26 +41,29 @@ const HeaderTab = () => {
   }, [pathname]);
 
   return (
-    <div className="relative w-full">
-      <nav className="flex space-x-[64px]" ref={navRef}>
+    <div className="relative w-full mt-[26px] md:mt-0">
+      <nav
+        className="flex space-x-4 md:justify-around md:space-x-14"
+        ref={navRef}
+      >
         {HEADER_MENU.slice(0, 4).map((item) => (
           <div
             key={item.id}
             onClick={() => handleNavigation(item.path, item.id)}
-            className={`flex flex-col items-center cursor-pointer text-xl font-semibold transition-colors duration-300 mb-[29px] ${
-              activeId === item.id ? "text-text1" : "text-unselected"
-            }`}
+            className={`flex flex-col items-center cursor-pointer text-sm text-text1 mb-[10px]
+              font-semibold transition-colors duration-300 md:text-lg md:mb-[22px]`}
+            // ${activeId === item.id ? "text-text1" : "text-unselected"}
           >
             {item.title}
           </div>
         ))}
       </nav>
-      {pathname !== "/" && (
+      {/* {pathname !== "/" && (
         <div
-          className="absolute bottom-0 h-[3px] bg-text1 transition-all duration-300"
+          className="absolute bottom-0 h-[1px] md:h-[3px] bg-text1 transition-all duration-300"
           style={{ width: `${barWidth}px`, left: `${barLeft}px` }}
         />
-      )}
+      )} */}
     </div>
   );
 };

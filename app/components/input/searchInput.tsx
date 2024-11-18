@@ -52,21 +52,21 @@ const SearchInput = ({
 
   return (
     <div
-      className={`relative w-full max-w-[564px] ${className} focus-within:border-searchbarborder border border-transparent rounded-xl`}
+      className={`relative w-full focus-within:border-searchbarborder border border-transparent rounded-xl md:mb-[26px] lg:max-w-[564px] lg:mb-[13px]`}
     >
       <Image
         src={searchIcon}
         alt="search"
-        width={24}
-        height={24}
-        className="absolute left-4 top-4"
+        width={20}
+        height={20}
+        className="absolute left-2.5 top-3 md:left-4 md:top-4 md:w-6 md:h-6"
       />
       <input
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="어떤 동아리를 찾으시나요?"
-        className="w-full pl-[46px] pr-[22px] py-[13px] rounded-xl bg-searchbar text-text1 text-base focus:outline-none"
+        className="w-full pl-10 py-[11px] md:pl-[46px] md:pr-[22px] md:py-[13px] rounded-xl bg-searchbar text-text1 text-13 md:text-base focus:outline-none"
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             handleSearch();
