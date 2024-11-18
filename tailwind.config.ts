@@ -44,11 +44,13 @@ const config: Config = {
       },
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",
+        border: "0px -3px 20px 0px rgba(0, 0, 0, 0.05)",
       },
       screens: {
         sm: "360px",
         md: "768px",
-        lg: "1288px",
+        // lg: "1288px",
+        lg: "1024px",
       },
     },
   },
