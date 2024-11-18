@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow overflow-y-auto flex justify-center items-center">
-          <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-5">
+          <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-4 md:px-5">
             {children}
           </div>
         </main>

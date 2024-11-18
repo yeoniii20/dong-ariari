@@ -16,21 +16,27 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full flex justify-center bg-white pt-[68px] pb-[92px]">
-      <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-5 flex flex-col items-center">
+    <footer className="w-full flex justify-center bg-white pt-3.5 pb-[28px] md:pt-[68px] md:pb-[92px]">
+      <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-4 md:px-5 flex flex-col items-center">
         <div className="flex justify-between items-center w-full">
-          <Image src={logo} alt="Logo" width={205} height={52} />
+          <Image
+            src={logo}
+            alt="Logo"
+            width={120}
+            height={30}
+            className="md:w-[205px] md:h-[52px]"
+          />
           <Image
             src={instagram}
             alt="instagram"
-            width={44}
-            height={44}
+            width={28}
+            height={28}
             onClick={() => router.push("https://instagram.com")}
-            className="cursor-pointer"
+            className="cursor-pointer md:w-[44px] md:h-[44px]"
           />
         </div>
-        <div className="flex justify-between items-center w-full mt-6">
-          <div className="flex space-x-12 text-unselected text-15 font-medium">
+        <div className="flex flex-col w-full space-y-3.5 mt-6 md:flex-row md:justify-between md:items-center">
+          <div className="flex space-x-12 text-xs text-unselected font-medium md:text-15">
             {LINKS.map((link, index) => (
               <p
                 key={index}
@@ -41,13 +47,13 @@ const Footer = () => {
               </p>
             ))}
           </div>
-          <div className="flex flex-row space-x-[19px] text-subtext2 text-15 font-medium">
+          <div className="flex flex-row text-xs text-subtext2 tmd:ext-15 md:space-x-[19px] font-medium">
             <p>서비스 문의 메일</p>
             <p>ariari2024.official@gmail.com</p>
           </div>
         </div>
         <div className="flex justify-between items-center w-full mt-6">
-          <p className="text-subtext2 text-sm">
+          <p className="text-subtext2 text-xs md:text-sm">
             © 2024 Ariari. All rights reserved.
           </p>
         </div>
