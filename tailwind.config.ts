@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: "class",
@@ -54,6 +55,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function (pluginAPI: PluginAPI) {
+      pluginAPI.addUtilities({
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+      });
+    },
+  ],
 };
 export default config;
