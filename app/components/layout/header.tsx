@@ -11,7 +11,7 @@ import Tooltip from "../tooltip";
 import User from "../user/user";
 import HeaderTab from "../tab/headerTab";
 import SmallButton from "../button/smallButton";
-import MoblieUser from "../user/mobileUser";
+import MobileUser from "../user/mobileUser";
 
 const Header = () => {
   const router = useRouter();
@@ -50,11 +50,12 @@ const Header = () => {
         </div>
         <div className="flex flex-col-reverse justify-between items-center w-full lg:flex-row">
           <HeaderTab />
-          <div className="flex w-full items-center space-x-4">
-            <SearchInput onSearch={handleSearch} showRecentSearches={true} />
-            <div className="flex space-x-4 md:hidden">
-              <div className="rounded-full w-7 h-7 bg-[#CBCBCB]" />
-              <div className="rounded-full w-7 h-7 bg-[#CBCBCB]" />
+          <div className="flex w-full items-center justify-between gap-4">
+            <div className="flex-1 sm:w-auto">
+              <SearchInput onSearch={handleSearch} showRecentSearches={true} />
+            </div>
+            <div className="md:hidden">
+              <MobileUser />
             </div>
           </div>
         </div>
