@@ -66,7 +66,7 @@ const SearchInput = ({
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="어떤 동아리를 찾으시나요?"
-        className="w-full pl-10 py-[11px] md:pl-[46px] md:pr-[22px] md:py-[13px] rounded-xl bg-searchbar text-text1 text-13 md:text-base focus:outline-none"
+        className="w-full pl-10 pr-3 py-[11px] md:pl-[46px] md:pr-[22px] md:py-[13px] rounded-xl bg-searchbar text-text1 text-13 md:text-base focus:outline-none"
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             handleSearch();
