@@ -7,7 +7,7 @@ import closeIcon from "@/images/icon/close.svg";
 import deleteIcon from "@/images/icon/delete.svg";
 
 interface SearchModalProps {
-  onClose: () => void; // 모달 닫기 핸들러
+  onClose: () => void;
 }
 
 const SearchModal = ({ onClose }: SearchModalProps) => {
@@ -35,7 +35,6 @@ const SearchModal = ({ onClose }: SearchModalProps) => {
 
   return (
     <div className="fixed inset-0 bg-white z-50 px-4">
-      {/* 닫기 버튼 */}
       <div className="flex justify-between mt-[46px] mb-4">
         <p className="text-text1 text-lg font-semibold">검색하기</p>
         <Image
@@ -46,8 +45,6 @@ const SearchModal = ({ onClose }: SearchModalProps) => {
           onClick={onClose}
         />
       </div>
-
-      {/* 검색창 컨테이너 */}
       <div className="w-full">
         <div className="relative w-full">
           <Image
@@ -62,7 +59,7 @@ const SearchModal = ({ onClose }: SearchModalProps) => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="어떤 동아리를 찾으시나요?"
-            className="w-full pl-10 pr-3 py-2 rounded-xl bg-gray-100 text-black text-sm focus:outline-none"
+            className="w-full pl-10 pr-3 py-3 rounded-xl bg-gray-100 text-black text-sm focus:outline-none"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 handleSearch();
@@ -70,14 +67,12 @@ const SearchModal = ({ onClose }: SearchModalProps) => {
             }}
           />
         </div>
-
-        {/* 최근 검색어 리스트 */}
         <div className="mt-5">
           <ul>
             {recentSearches.map((search, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center px-3 py-[10px]"
+                className="flex justify-between items-center px-3 py-[10px] space-y-2"
               >
                 <span
                   className="cursor-pointer text-text1"
