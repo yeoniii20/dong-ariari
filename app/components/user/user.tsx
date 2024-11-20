@@ -43,12 +43,12 @@ const User = () => {
         <div className="relative flex items-center space-x-5" ref={dropdownRef}>
           <Notification />
           <button
-            className="relative flex items-center space-x-2 text-subtext2 cursor-pointer rounded-[30px] "
-            // hover:bg-hover focus:bg-pressed
+            className="relative flex items-center space-x-2 p-2 text-subtext2 cursor-pointer rounded-[30px]
+            hover:bg-hover focus:bg-pressed"
             onClick={toggleDropdown}
           >
             <div className="rounded-full w-10 h-10 bg-[#CBCBCB]" />
-            <span className="text-subtext2 text-base">{username}님</span>
+            <span className="text-sub∆text2 text-base">{username}님</span>
             <Image src={arrow} alt="arrow" className="pr-2" />
           </button>
           {isDropdownOpen && (

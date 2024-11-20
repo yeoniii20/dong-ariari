@@ -77,6 +77,11 @@ const HeaderTab = () => {
 
   useEffect(() => {
     const activeIndex = menu.findIndex((item) => item.path === pathname);
+    if (pathname === "/") {
+      setActiveId(null);
+      return;
+    }
+
     if (activeIndex !== -1) {
       setActiveId(menu[activeIndex].id);
     }
@@ -100,7 +105,8 @@ const HeaderTab = () => {
     <div className="relative w-full mt-[26px] md:mt-0">
       <nav
         ref={navRef}
-        className="flex space-x-4 md:justify-around lg:justify-start md:space-x-14 whitespace-nowrap overflow-x-auto no-scrollbar"
+        className="flex space-x-4 md:justify-around lg:justify-start md:space-x-14
+        whitespace-nowrap overflow-x-auto no-scrollbar"
         style={{
           WebkitOverflowScrolling: "touch",
         }}
@@ -110,17 +116,19 @@ const HeaderTab = () => {
             key={item.id}
             onClick={() => handleNavigation(item.path, item.id)}
             className={`flex flex-col items-center cursor-pointer text-sm mb-[10px]
-              font-semibold transition-colors duration-300 md:text-lg md:mb-[22px] md:text-text1 
+              font-semibold transition-colors duration-300 md:text-lg md:mb-[22px] 
               ${activeId === item.id ? "text-text1" : "text-unselected"}`}
           >
             {item.title}
           </div>
         ))}
       </nav>
-      <div
-        className="absolute bottom-0 h-[1px] md:h-[3px] bg-text1 transition-all duration-300 md:hidden"
-        style={{ width: `${barWidth}px`, left: `${barLeft}px` }}
-      />
+      {pathname !== "/" && (
+        <div
+          className="absolute bottom-0 h-[1px] md:h-[3px] bg-text1 transition-all duration-300"
+          style={{ width: `${barWidth}px`, left: `${barLeft}px` }}
+        />
+      )}
     </div>
   );
 };
