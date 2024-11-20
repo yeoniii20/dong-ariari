@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import searchIcon from "@/images/icon/search.svg";
 import RecentSearchTermDropdown from "../dropdown/recentSearchTermDropdown";
+import SearchModal from "../modal/searchModal";
 
 interface SearchInputProps {
   onSearch: (searchTerm: string) => void;
@@ -30,6 +31,20 @@ const SearchInput = ({
     "최근 검색어 3",
   ]);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [showDropdown, setShowDropdown] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleFocus = () => {
+    if (window.innerWidth < 768) {
+      setShowModal(true);
+    } else {
+      setIsFocused(true);
+    }
+  };
 
   const handleSearch = () => {
     if (inputValue.trim()) {
@@ -49,6 +64,23 @@ const SearchInput = ({
   const handleRemoveSearchItem = (index: number) => {
     setRecentSearches(recentSearches.filter((_, i) => i !== index));
   };
+
+  useEffect(() => {
+    const clickSearch = () => {
+      if (window.innerWidth < 768) {
+        setShowDropdown(false);
+      } else {
+        setShowDropdown(true);
+      }
+    };
+
+    clickSearch();
+    window.addEventListener("resize", clickSearch);
+
+    return () => {
+      window.removeEventListener("resize", clickSearch);
+    };
+  }, []);
 
   return (
     <div
@@ -72,16 +104,20 @@ const SearchInput = ({
             handleSearch();
           }
         }}
-        onFocus={() => setIsFocused(true)}
+        onFocus={handleFocus}
         onBlur={() => setIsFocused(false)}
       />
-      {showRecentSearches && isFocused && recentSearches.length > 0 && (
-        <RecentSearchTermDropdown
-          recentSearches={recentSearches}
-          onRecentSearchClick={handleRecentSearchClick}
-          onRemoveSearchItem={handleRemoveSearchItem}
-        />
-      )}
+      {showRecentSearches &&
+        showDropdown &&
+        isFocused &&
+        recentSearches.length > 0 && (
+          <RecentSearchTermDropdown
+            recentSearches={recentSearches}
+            onRecentSearchClick={handleRecentSearchClick}
+            onRemoveSearchItem={handleRemoveSearchItem}
+          />
+        )}
+      {!showDropdown && showModal && <SearchModal onClose={handleCloseModal} />}
     </div>
   );
 };
