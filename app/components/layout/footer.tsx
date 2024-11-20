@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full flex justify-center shadow-border bg-white pt-3.5 pb-[28px] md:pt-[68px] md:pb-[92px]">
-      <div className="w-full max-w-screen-sm sm:max-w-screen-md lg:max-w-screen-lg px-4 md:px-5 flex flex-col items-center">
+      <div className="w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-lx px-4 md:px-5 flex flex-col items-center">
         <div className="flex justify-between items-center w-full">
           <Image
             src={logo}
