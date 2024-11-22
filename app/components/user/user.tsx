@@ -6,6 +6,7 @@ import arrow from "@/images/icon/arrow.svg";
 import UserDropdown from "../dropdown/userDropdown";
 import Notification from "../notification";
 import { USER_MENU } from "@/data/header";
+import LoginBtn from "../button/basicBtn/loginBtn";
 
 const User = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -59,9 +60,7 @@ const User = () => {
           )}
         </div>
       ) : (
-        <button className="text-subtext2 text-base px-7" onClick={handleLogin}>
-          로그인 후 이용하기
-        </button>
+        <LoginBtn onClick={handleLogin} />
       )}
     </>
   );
