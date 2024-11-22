@@ -12,8 +12,8 @@ import { ButtonWithTextProps } from "@/types/components/button";
 const LargeBtn = ({ title, onClick, round = false }: ButtonWithTextProps) => {
   return (
     <button
-      className={`w-full py-4 max-w-[266px] text-sm
-    md:max-w-[390px] md:py-[18px] md:text-base font-semibold focus:bg-primary_hover
+      className={`py-4 w-[266px] text-sm
+    md:w-[390px] md:py-[18px] md:text-base font-semibold focus:bg-primary_hover
     bg-primary text-background md:hover:bg-primary_hover md:focus:bg-primary_pressed
     ${round ? "rounded-full" : "rounded-lg"}`}
       onClick={onClick}

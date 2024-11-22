@@ -5,12 +5,13 @@ import Image from "next/image";
 import notification_default from "@/images/icon/notification_default.svg";
 import notification_pressed from "@/images/icon/notification_pressed.svg";
 import notification_unconfirmed from "@/images/icon/notification_unconfirmed.svg";
+import { ButtonProps } from "@/types/components/button";
 
-interface NotificationProps {
+interface NotificationProps extends ButtonProps {
   size: "large" | "small";
 }
 
-const Notification = ({ size }: NotificationProps) => {
+const Notification = ({ size, onClick }: NotificationProps) => {
   const [notificationStatus, setNotificationStatus] = useState<
     "default" | "pressed" | "unconfirmed"
   >("default");
@@ -27,7 +28,7 @@ const Notification = ({ size }: NotificationProps) => {
   };
 
   return (
-    <button className="p-0.5 rounded-full hover:bg-hover">
+    <button className="p-0.5 rounded-full hover:bg-hover" onClick={onClick}>
       <Image
         src={getNotificationImage()}
         alt="notification"
