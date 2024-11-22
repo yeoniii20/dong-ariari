@@ -14,7 +14,7 @@ import DarkBtn from "@/components/button/withIconBtn/darkBtn";
 
 const MobileButtons = () => {
   return (
-    <div className="bg-pink-100 p-3 gap-4 block md:hidden">
+    <div className="gap-4 block md:hidden">
       <div className="flex gap-4">
         <div className="flex flex-col items-start space-y-2">
           <LargeBtn title={"Button"} onClick={() => {}} />

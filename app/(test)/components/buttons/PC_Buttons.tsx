@@ -18,7 +18,7 @@ import LoginBtn from "@/components/button/basicBtn/loginBtn";
 
 const PcButtons = () => {
   return (
-    <div className="bg-pink-100 p-3 gap-4 hidden md:block">
+    <div className="gap-4 hidden md:block">
       <div className="flex gap-4">
         <div className="flex flex-col items-start space-y-2">
           <LargeBtn title={"제출하기"} onClick={() => {}} />
