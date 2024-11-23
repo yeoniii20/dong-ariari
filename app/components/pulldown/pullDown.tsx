@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import PulldownOption from "@/components/pulldown/pullDownOption";
 import Image from "next/image";
 import keyboardArrowDown from "@/images/icon/keyboardArrowDown.svg";
-import RadioStyleCheckboxGroup from "./pullDownMultiSelectOption";
+import SingleSelectOptions from "./singleSelectOptions";
+import MultiSelectOptions from "./multiSelectOptions";
 
 interface PulldownProps {
   optionData: { id: number; label: string }[];
@@ -63,10 +63,8 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
 
   const getDynamicStyle = () => {
     const length = selectedOptionText.replace(/\s/g, "").length;
-    if (length <= 3) return "w-[50px] text-[15px]";
-    if (length === 4) return "w-[52px] text-[14px]";
-    if (length === 5) return "w-[64px] text-[14px]";
-    return "w-[76px] text-[14px]";
+    if (length <= 3) return "text-[15px]";
+    else return "text-[14px]";
   };
 
   useEffect(() => {
@@ -104,13 +102,14 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
 
       {isDropdownOpen &&
         (type === "singleSelect" ? (
-          <PulldownOption
+          <SingleSelectOptions
+            size={"small"}
             selectedOption={selectedOptions[0]}
             optionData={optionData.slice(1)}
             handleMenuClick={handleMenuClick}
           />
         ) : (
-          <RadioStyleCheckboxGroup
+          <MultiSelectOptions
             selectedOptions={selectedOptions}
             optionData={optionData.slice(1)}
             handleMenuClick={handleMenuClick}
