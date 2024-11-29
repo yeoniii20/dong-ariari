@@ -16,10 +16,10 @@ const TransparentLargeBtn = ({
 }: ButtonWithTextProps) => {
   return (
     <button
-      className={`py-4 w-[266px] text-sm text-primary border border-primary
-    md:w-[390px] md:py-[18px] md:text-base font-semibold focus:bg-aelectedoption_hover
-   bg-aelectedoption_default md:hover:bg-aelectedoption_hover md:focus:bg-aelectedoption_pressed
-    ${round ? "rounded-full" : "rounded-lg"}`}
+      className={`py-4 text-sm text-primary border border-primary
+    md:py-[18px] md:text-base font-semibold focus:bg-aelectedoption_hover
+    bg-aelectedoption_default md:hover:bg-aelectedoption_hover md:focus:bg-aelectedoption_pressed
+    ${round ? "rounded-full" : "rounded-lg"} w-full`}
       onClick={onClick}
     >
       {title}
