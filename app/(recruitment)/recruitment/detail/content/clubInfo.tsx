@@ -30,33 +30,39 @@ const ClubInfo = () => {
           className="rounded-48 object-cover"
         />
       </div>
-      <div className="flex flex-col md:pt-[6px]">
+      <div className="flex flex-col mt-[18px] md:pt-[6px]">
         <div className="block md:hidden">
-          <div className="flex justify-between items-center">
-            <div className="flex gap-3 items-center">
-              <Image
-                src={test_image}
-                alt={"Test Image"}
-                width={68}
-                height={68}
-                className="rounded-full object-cover"
-              />
-              <div className="flex flex-col gap-2">
-                <h1 className="text-mobile_h1_contents_title text-text1">
-                  동아리 이름
-                </h1>
-                <p className="text-subtext2 text-mobile_body3_m">
-                  소속 | 분야 | 지역 | 대상
-                </p>
+          <div className="flex flex-col gap-[18px]">
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <Image
+                  src={test_image}
+                  alt={"Test Image"}
+                  width={68}
+                  height={68}
+                  className="rounded-full object-cover"
+                />
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-mobile_h1_contents_title text-text1">
+                    동아리 이름
+                  </h1>
+                  <p className="text-subtext2 text-mobile_body3_m">
+                    소속 | 분야 | 지역 | 대상
+                  </p>
+                </div>
+              </div>
+              <p></p>
+              <div className="cursor-pointer" onClick={onHeartClick}>
+                {isHeart ? (
+                  <MdFavorite size={24} color="#D1F75D" />
+                ) : (
+                  <MdFavorite size={24} color="#E3E3E3" />
+                )}
               </div>
             </div>
-            <div className="cursor-pointer" onClick={onHeartClick}>
-              {isHeart ? (
-                <MdFavorite size={24} color="#D1F75D" />
-              ) : (
-                <MdFavorite size={24} color="#E3E3E3" />
-              )}
-            </div>
+            <p className="text-mobile_body1_r text-subtext1">
+              동아리 소개 입니다.
+            </p>
           </div>
         </div>
         <div className="hidden md:block">
