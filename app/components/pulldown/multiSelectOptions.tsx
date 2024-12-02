@@ -7,21 +7,28 @@ import uncheckIcon from "@/images/icon/radio_button_unchecked.svg";
 interface MultiSelectOptionsProps {
   selectedOptions: string[];
   optionData: { id: number; label: string }[];
+  size: "small" | "medium" | "large";
   handleMenuClick: (label: string) => void;
 }
 
 const MultiSelectOptions = ({
   selectedOptions,
   optionData,
+  size,
   handleMenuClick,
 }: MultiSelectOptionsProps) => {
   return (
     <div
-      className={`z-50 absolute top-full mt-2 bg-background rounded-lg border border-menuborder shadow-default flex flex-col w-[116px]`}
+      className={`flex flex-col absolute z-50 top-full left-1/2 transform -translate-x-1/2 mt-2 bg-background rounded-lg border border-menuborder shadow-default 
+        ${
+          size == "small"
+            ? "w-[116px]"
+            : size == "medium"
+            ? "w-[160px]"
+            : "w-[190px]"
+        }`}
     >
       {optionData.map((item, index) => {
-        // border-radius
-
         return (
           <div
             key={item.id}
