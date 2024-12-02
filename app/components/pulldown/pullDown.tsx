@@ -36,11 +36,25 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
       setSelectedOptions([label]);
       toggleDropdown();
     } else {
-      setSelectedOptions((prevSelectedOptions) =>
-        prevSelectedOptions.includes(label)
-          ? prevSelectedOptions.filter((option) => option !== label)
-          : [...prevSelectedOptions, label]
-      );
+      setSelectedOptions((prevSelectedOptions) => {
+        if (label === "전체") {
+          // 전체 선택 o -> 전체 : 비움
+          if (prevSelectedOptions.includes("전체")) {
+            return [];
+          }
+          // 전체선택 x -> 전체 : 전체만 선택
+          return ["전체"];
+        } else {
+          // 전체 선택 o -> 이 외 선택
+          if (prevSelectedOptions.includes("전체")) {
+            return [label];
+          }
+          // 전체 선택 x -> 이 외 선택
+          return prevSelectedOptions.includes(label)
+            ? prevSelectedOptions.filter((option) => option !== label)
+            : [...prevSelectedOptions, label];
+        }
+      });
     }
   };
 
@@ -80,8 +94,9 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
         ref={buttonRef}
         onClick={toggleDropdown}
         className={`relative flex items-center justify-between 
-          pl-[20px] pr-[14px] py-[8px]
-          cursor-pointer rounded-[30px] border 
+          pl-[12px] pr-[8px] py-[6px]
+          cursor-pointer rounded-[30px] border gap-[6px]
+          md:pl-[20px] md:pr-[14px] md:py-[8px]
           ${
             isSelected
               ? `bg-selectedoption_default border-selectedoptionborder hover:bg-selectedoption_hover focus:bg-selectedoption_pressed`
@@ -90,14 +105,18 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
         `}
       >
         <span
-          className={`text-base text-left ${
+          className={`text-[13px] text-left md:text-[14px] ${
             isSelected ? "text-primary" : "text-text1"
-          } ${getDynamicStyle()}`}
+          } md:${getDynamicStyle()}`}
         >
           {selectedOptionText}
         </span>
 
-        <Image src={keyboardArrowDown} alt="keyboardArrowDown" />
+        <Image
+          src={keyboardArrowDown}
+          alt="keyboardArrowDown"
+          className="w-[24px] h-[24px] md:w-[16px] md:h-[16px]"
+        />
       </button>
 
       {isDropdownOpen &&
@@ -112,6 +131,7 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
           <MultiSelectOptions
             selectedOptions={selectedOptions}
             optionData={optionData.slice(1)}
+            size="small"
             handleMenuClick={handleMenuClick}
           />
         ))}
