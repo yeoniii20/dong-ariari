@@ -36,6 +36,7 @@ const config: Config = {
         selectedoption_hover: "rgba(88, 155, 255, 0.2)",
         selectedoption_pressed: "rgba(88, 155, 255, 0.25)",
         selectedoptionborder: "rgba(88, 155, 255, 0.7)",
+        token_bg: "rgba(166, 166, 166, 0.2)",
       },
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",

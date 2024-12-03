@@ -31,14 +31,18 @@ const SingleSelectOptions = ({
             ${index !== 0 ? "border-t border-menuborder " : ""}
             ${
               selectedOption === item.label
-                ? `border border-primary bg-selectedoption_default text-primary mx-[0px]`
+                ? `border border-primary bg-selectedoption_default mx-[0px]`
                 : `mx-[5px] hover:bg-hover hover:mx-[0px] hover:text-subtext1`
             }          
             `}
         onMouseDown={(e) => e.preventDefault()}
         onClick={() => handleMenuClick(item.label)}
       >
-        <span className="relative w-full py-[10px] text-center text-[15px]">
+        <span
+          className={`relative w-full py-[10px] text-center text-[15px] ${
+            selectedOption === item.label && "text-primary"
+          }`}
+        >
           {item.label}
         </span>
       </div>

@@ -12,6 +12,7 @@ import {
   Target_Type,
 } from "@/data/pulldown";
 import CardList from "@/components/card/cardList";
+import SubTap from "@/components/tab/subTap";
 
 const dummyCardData = [
   { id: 1, rank: 1, title: "Card 1", description: "짧은 동아리 소개." },
@@ -64,15 +65,24 @@ const dummyCardData = [
 const ClubRanking = () => {
   const { searchTerm } = useContext(SearchTermContext);
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = () => setIsModalVisible(true);
+  const closeModal = () => setIsModalVisible(false);
+
   return (
     <section className="py-7 ">
       <div className="flex justify-between items-center">
-        <div className="text-[28px] font-bold ">실시간 동아리 랭킹</div>
+        <div className="text-[28px] font-bold md: text-[18px]">
+          실시간 동아리 랭킹
+        </div>
         <div className="flex gap-[16px]">
           <PullDown optionData={Affiliation_Type} type="singleSelect" />
           <PullDown optionData={Field_Type} type="singleSelect" />
           <PullDown optionData={Area_Type} type="multiSelect" />
           <PullDown optionData={Target_Type} type="multiSelect" />
+
+          <SubTap options={[{ label: "연합" }, { label: "교내" }]} />
         </div>
       </div>
 
