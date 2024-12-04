@@ -21,7 +21,7 @@ type NotiPopUpProps = {
   secondButtonText?: string;
 };
 
-const NotiPopUp: React.FC<NotiPopUpProps> = ({
+const NotiPopUp = ({
   onClose,
   icon,
   title,
@@ -31,11 +31,7 @@ const NotiPopUp: React.FC<NotiPopUpProps> = ({
   secondButton,
   secondButtonText,
   modalType,
-}) => {
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
+}: NotiPopUpProps) => {
   const iconMap: Record<NotiPopUpProps["icon"], StaticImageData> = {
     school: schoolIcon,
     point: pointIcon,
@@ -44,10 +40,9 @@ const NotiPopUp: React.FC<NotiPopUpProps> = ({
   };
 
   return (
-    <div
-      onClick={handleBackdropClick}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+      <div className="absolute inset-0" onClick={onClose}></div>
+
       <div className="relative w-[306px] p-[20px] pt-[52px] bg-white rounded-[16px] md:w-[430px] md:pt-[72px] md:pb-[26px] md:px-[20px]">
         <div className="flex justify-center mb-[32px] md:mb-[46px]">
           <Image
