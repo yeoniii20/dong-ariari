@@ -1,18 +1,14 @@
 "use client";
 
-import { useContext, useState } from "react";
-import SearchTermContext from "@/context/searchTermContext";
+import { useMediaQuery } from "react-responsive";
 
 import PullDown from "@/components/pulldown/pullDown";
-
-import {
-  Affiliation_Type,
-  Area_Type,
-  Field_Type,
-  Target_Type,
-} from "@/data/pulldown";
-import CardList from "@/components/card/cardList";
 import SubTap from "@/components/tab/subTap";
+import ClubRankingCard from "@/components/card/clubRankingCard";
+import ClubRankingList from "@/components/card/clubLankingList";
+
+import { Affiliation_Type, Area_Type, Field_Type } from "@/data/pulldown";
+import { useState } from "react";
 
 const dummyCardData = [
   { id: 1, rank: 1, title: "Card 1", description: "짧은 동아리 소개." },
@@ -28,7 +24,6 @@ const dummyCardData = [
     rank: 4,
     title: "Card 4",
     description: "긴 동아리 소개 긴 동아리 소개 긴 동아리 소개 긴 동아리 소개",
-    // imageSrc: "",
   },
   {
     id: 5,
@@ -63,31 +58,46 @@ const dummyCardData = [
 ];
 
 const ClubRanking = () => {
-  const { searchTerm } = useContext(SearchTermContext);
-
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const openModal = () => setIsModalVisible(true);
-  const closeModal = () => setIsModalVisible(false);
+  const isTab = useMediaQuery({ query: "(min-width: 768px)" });
+  const [fieldType, setFieldType] = useState<string[]>([]);
+  const [affiliationType, setAffiliationType] = useState<string[]>([]);
 
   return (
     <section className="py-7 ">
       <div className="flex justify-between items-center">
-        <div className="text-[28px] font-bold md: text-[18px]">
+        <div className="text-[18px] font-bold md:text-[28px]">
           실시간 동아리 랭킹
         </div>
-        <div className="flex gap-[16px]">
-          <PullDown optionData={Affiliation_Type} type="singleSelect" />
-          <PullDown optionData={Field_Type} type="singleSelect" />
-          <PullDown optionData={Area_Type} type="multiSelect" />
-          <PullDown optionData={Target_Type} type="multiSelect" />
-
-          <SubTap options={[{ label: "연합" }, { label: "교내" }]} />
+        <div className="hidden md:flex md:gap-[16px]">
+          <PullDown
+            optionData={Field_Type}
+            optionSize="small"
+            handleOption={setFieldType}
+            selectedOption={fieldType}
+          />
+          <SubTap optionData={Affiliation_Type.slice(1, 3)} />
         </div>
       </div>
+      <div className="flex mt-[16px] gap-[10px] md:hidden">
+        <PullDown
+          optionData={Affiliation_Type}
+          optionSize="small"
+          handleOption={setAffiliationType}
+          selectedOption={affiliationType}
+        />
+        <PullDown
+          optionData={Field_Type}
+          optionSize="small"
+          handleOption={setFieldType}
+          selectedOption={fieldType}
+        />
+      </div>
 
-      <div className="py-10">
-        <CardList cards={dummyCardData} />
+      <div className="py-5">
+        <ClubRankingCard clubs={dummyCardData.slice(0, isTab ? 3 : 1)} />
+        <ClubRankingList
+          clubs={dummyCardData.slice(isTab ? 3 : 1, isTab ? 10 : 7)}
+        />
       </div>
     </section>
   );
