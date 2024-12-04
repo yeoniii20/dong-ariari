@@ -5,15 +5,15 @@ import checkIcon from "@/images/icon/radio_button_checked.svg";
 import uncheckIcon from "@/images/icon/radio_button_unchecked.svg";
 
 interface MultiSelectOptionsProps {
-  selectedOptions: string[];
   optionData: { id: number; label: string }[];
+  selectedOptions: string[];
   size: "small" | "medium" | "large";
   handleMenuClick: (label: string) => void;
 }
 
 const MultiSelectOptions = ({
-  selectedOptions,
   optionData,
+  selectedOptions,
   size,
   handleMenuClick,
 }: MultiSelectOptionsProps) => {

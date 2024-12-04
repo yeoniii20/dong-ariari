@@ -6,22 +6,35 @@ import keyboardArrowDown from "@/images/icon/keyboardArrowDown.svg";
 import SingleSelectOptions from "./singleSelectOptions";
 import MultiSelectOptions from "./multiSelectOptions";
 
+import BottomSheet from "./bottomSheet";
+import { useMediaQuery } from "react-responsive";
+import NotiPopUp from "../Modal/notiPopUp";
+
 interface PulldownProps {
   optionData: { id: number; label: string }[];
-  type: "singleSelect" | "multiSelect";
+  multiple?: boolean;
+  selectedOption: string[];
+  handleOption: (label: string[]) => void;
+  optionSize: "small" | "medium" | "large";
 }
 
-const PullDown = ({ optionData, type }: PulldownProps) => {
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
+const PullDown = ({
+  optionData,
+  optionSize,
+  multiple = false,
+  selectedOption,
+  handleOption,
+}: PulldownProps) => {
+  const pulldownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const isTabOver = useMediaQuery({ query: "(min-width: 768px)" });
+  const isSelected = selectedOption.length > 0;
 
-  const [selectedOptions, setSelectedOptions] = useState<string[]>(
-    type === "singleSelect" ? [] : []
-  );
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); //옵션메뉴
+  const [isModalOpen, setModalOpen] = useState(false); // ex) 학교 인증 모달
 
-  const isSelected = selectedOptions.length > 0;
+  const schoolCertification = false; // 학교 인증 여부 임시값
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => {
@@ -32,47 +45,45 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
   };
 
   const handleMenuClick = (label: string) => {
-    if (type === "singleSelect") {
-      setSelectedOptions([label]);
+    if (!schoolCertification && label == "교내") {
+      setModalOpen(true);
+      return;
+    }
+    if (!multiple) {
+      handleOption([label]);
       toggleDropdown();
     } else {
-      setSelectedOptions((prevSelectedOptions) => {
+      const updatedOptions = (() => {
         if (label === "전체") {
-          // 전체 선택 o -> 전체 : 비움
-          if (prevSelectedOptions.includes("전체")) {
-            return [];
-          }
-          // 전체선택 x -> 전체 : 전체만 선택
-          return ["전체"];
+          return selectedOption.includes("전체") ? [] : ["전체"];
         } else {
-          // 전체 선택 o -> 이 외 선택
-          if (prevSelectedOptions.includes("전체")) {
+          if (selectedOption.includes("전체")) {
             return [label];
           }
-          // 전체 선택 x -> 이 외 선택
-          return prevSelectedOptions.includes(label)
-            ? prevSelectedOptions.filter((option) => option !== label)
-            : [...prevSelectedOptions, label];
+          return selectedOption.includes(label)
+            ? selectedOption.filter((option) => option !== label) // 제거
+            : [...selectedOption, label]; // 추가
         }
-      });
+      })();
+
+      handleOption(updatedOptions);
     }
   };
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
+      pulldownRef.current &&
+      !pulldownRef.current.contains(event.target as Node)
     ) {
       setIsDropdownOpen(false);
       buttonRef.current?.blur();
     }
   };
 
-  const selectedOptionText = selectedOptions[0]
-    ? type === "singleSelect" ||
-      (type === "multiSelect" && selectedOptions.length === 1)
-      ? selectedOptions[0]
-      : `${selectedOptions[0]} 외 ${selectedOptions.length - 1}`
+  const selectedOptionText = selectedOption[0]
+    ? !multiple || (multiple && selectedOption.length === 1)
+      ? selectedOption[0]
+      : `${selectedOption[0]} 외 ${selectedOption.length - 1}`
     : optionData[0].label;
 
   const getDynamicStyle = () => {
@@ -89,7 +100,7 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative flex items-center">
+    <div ref={pulldownRef} className="relative flex items-center">
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
@@ -120,21 +131,53 @@ const PullDown = ({ optionData, type }: PulldownProps) => {
       </button>
 
       {isDropdownOpen &&
-        (type === "singleSelect" ? (
-          <SingleSelectOptions
-            size={"small"}
-            selectedOption={selectedOptions[0]}
+        (!multiple ? (
+          isTabOver ? (
+            <SingleSelectOptions
+              optionData={optionData.slice(1)}
+              selectedOption={selectedOption[0]}
+              handleMenuClick={handleMenuClick}
+              size={optionSize}
+            />
+          ) : (
+            <BottomSheet
+              optionData={optionData.slice(1)}
+              selectedOptions={selectedOption}
+              handleMenuClick={handleMenuClick}
+              onClose={() => setIsDropdownOpen(false)}
+              multiple={false}
+            />
+          )
+        ) : isTabOver ? (
+          <MultiSelectOptions
             optionData={optionData.slice(1)}
+            selectedOptions={selectedOption}
             handleMenuClick={handleMenuClick}
+            size={optionSize}
           />
         ) : (
-          <MultiSelectOptions
-            selectedOptions={selectedOptions}
+          <BottomSheet
             optionData={optionData.slice(1)}
-            size="small"
+            selectedOptions={selectedOption}
             handleMenuClick={handleMenuClick}
+            onClose={() => setIsDropdownOpen(false)}
+            multiple={true}
           />
         ))}
+
+      {isModalOpen && (
+        <NotiPopUp
+          onClose={() => setModalOpen(false)}
+          icon="school"
+          title="학교 등록이 필요합니다"
+          description={`교내 인기 동아리를 확인하기 위해서는\n학교 등록이 필요합니다.`}
+          firstButton={() => {}}
+          firstButtonText="학교 등록하기"
+          secondButton={() => setModalOpen(false)}
+          secondButtonText="다음에 할게요"
+          modalType="button"
+        />
+      )}
     </div>
   );
 };
