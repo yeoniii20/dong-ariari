@@ -32,7 +32,10 @@ const ClubRankingList = ({ clubs }: ClubRankingListProps) => {
         }}
       >
         {clubs.map((club) => (
-          <div key={club.id} className="min-w-[204px] rounded-lg flex-shrink-0">
+          <div
+            key={club.id}
+            className="min-w-[204px] rounded-lg flex-shrink-0 cursor-pointer "
+          >
             <div className="flex items-center gap-[18px] md:gap-[30px]">
               <div className="flex items-center gap-[14px] md:gap-[26px]">
                 <Image

@@ -25,7 +25,10 @@ const ClubRankingCard = ({ clubs }: ClubRankingCardProps) => {
         const gradientClass = `${gradientClasses[index]} text-white mb-[8px]`;
 
         return (
-          <div key={club.id} className={`w-full rounded-lg ${gradientClass}`}>
+          <div
+            key={club.id}
+            className={`w-full rounded-lg cursor-pointer ${gradientClass}`}
+          >
             <div
               className={`flex items-center gap-[16px] px-[24px] py-[16px] md:py-[32px] md:gap-[28px]`}
             >
