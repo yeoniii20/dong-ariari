@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import useResponsive from "../../../hooks/useResponsive";
+
 import Image from "next/image";
 import keyboardArrowDown from "@/images/icon/keyboardArrowDown.svg";
 import SingleSelectOptions from "./singleSelectOptions";
 import MultiSelectOptions from "./multiSelectOptions";
 
 import BottomSheet from "./bottomSheet";
-import { useMediaQuery } from "react-responsive";
 import NotiPopUp from "../Modal/notiPopUp";
 
 interface PulldownProps {
@@ -28,7 +29,8 @@ const PullDown = ({
   const pulldownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const isTabOver = useMediaQuery({ query: "(min-width: 768px)" });
+  const isTabOver = useResponsive("(min-width: 768px)");
+
   const isSelected = selectedOption.length > 0;
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); //옵션메뉴
