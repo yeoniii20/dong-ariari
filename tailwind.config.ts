@@ -39,9 +39,9 @@ const config: Config = {
         button3: "#bfd1e8",
         button_border: "#889cd6",
         black_50: "rgba(0, 0, 0, 0.5)",
-        aelectedoption_default: "rgba(88, 155, 255, 0.1)",
-        aelectedoption_hover: "rgba(88, 155, 255, 0.2)",
-        aelectedoption_pressed: "rgba(88, 155, 255, 0.26)",
+        selectedoption_default: "rgba(88, 155, 255, 0.1)",
+        selectedoption_hover: "rgba(88, 155, 255, 0.2)",
+        selectedoption_pressed: "rgba(88, 155, 255, 0.26)",
       },
       boxShadow: {
         default: "2px 2px 12px 0px rgba(0, 0, 0, 0.12)",

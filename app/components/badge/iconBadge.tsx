@@ -17,7 +17,7 @@ const IconBadge = ({ type, text }: BadgeProps) => {
   return (
     <div className="flex items-center gap-[10px]">
       <div
-        className="flex bg-aelectedoption_default rounded
+        className="flex bg-selectedoption_default rounded
         py-[3px] md:py-1 md:px-[10px] gap-[6px] w-[66px] md:w-[70px] justify-center"
       >
         <Image src={type === "면접" ? speechBubble : file} alt={type} />

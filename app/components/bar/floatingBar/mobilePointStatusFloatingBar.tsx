@@ -14,7 +14,7 @@ const MobilePointStatusFloatingBar = ({}: DayFloatingBarProps) => {
       style={{ zIndex: 1000 }}
     >
       <div
-        className="w-full bg-aelectedoption_default rounded-lg
+        className="w-full bg-selectedoption_default rounded-lg
         max-w-[1248px] mb-9 px-5 py-2"
       >
         <div className="flex justify-between">

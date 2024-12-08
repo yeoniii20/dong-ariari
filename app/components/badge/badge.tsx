@@ -10,14 +10,14 @@ const Badge = ({ text, textColor }: BadgeProps) => {
     <>
       {textColor === "white" ? (
         <div
-          className="bg-primary rounded-lg text-white text-body3_m
+          className="bg-primary rounded text-white text-body3_m
         py-[3px] px-[10px] md:py-1 md:px-[10px]"
         >
           {text}
         </div>
       ) : (
         <div
-          className="bg-aelectedoption_hover rounded-lg text-primary text-body3_m
+          className="bg-selectedoption_hover rounded text-primary text-body3_m
         py-[3px] px-[10px] md:py-1 md:px-[10px]"
         >
           {text}
