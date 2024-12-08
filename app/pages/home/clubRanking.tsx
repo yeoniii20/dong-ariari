@@ -58,10 +58,10 @@ const dummyCardData = [
 ];
 
 const ClubRanking = () => {
-  const isTab = useResponsive("(min-width: 768px)");
+  const isTab = useResponsive("md");
   const [fieldType, setFieldType] = useState<string[]>([]);
   const [affiliationType, setAffiliationType] = useState<string[]>([]);
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
 
   return (
     <section className="py-7 ">
