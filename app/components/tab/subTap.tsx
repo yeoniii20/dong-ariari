@@ -6,8 +6,8 @@ interface SubTapProps {
 }
 
 const SubTap = ({ optionData }: SubTapProps) => {
-  const [selectedOption, setSelectedOption] = useState(0);
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<number>(0);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const schoolCertification = false; // 학교 인증 여부 임시값
 

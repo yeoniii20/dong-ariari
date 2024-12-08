@@ -29,12 +29,12 @@ const PullDown = ({
   const pulldownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const isTabOver = useResponsive("(min-width: 768px)");
+  const isTabOver = useResponsive("md");
 
   const isSelected = selectedOption.length > 0;
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); //옵션메뉴
-  const [isModalOpen, setModalOpen] = useState(false); // ex) 학교 인증 모달
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); //옵션메뉴
+  const [isModalOpen, setModalOpen] = useState<boolean>(false); // ex) 학교 인증 모달
 
   const schoolCertification = false; // 학교 인증 여부 임시값
 

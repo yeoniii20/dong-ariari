@@ -20,7 +20,7 @@ const BottomSheet = ({
   multiple = false,
 }: BottomSheetProps) => {
   const isSelected = selectedOptions.length > 0;
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     setIsVisible(true);
