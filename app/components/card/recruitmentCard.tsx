@@ -18,7 +18,6 @@ const RecruitmentCard = ({ onClick, title, date }: RecruitmentCardProps) => {
       <div className="flex flex-col items-start md:flex-row md:justify-between md:items-center">
         <div className="flex flex-col items-start md:flex-row  md:items-center gap-3 md:gap-12">
           <div className="flex gap-2">
-            <Badge text={"1기"} textColor={"white"} />
             <Badge text={"모집중"} textColor={"blue"} />
           </div>
           <h3 className="text-body1_m md:text-h4_sb text-text1">{title}</h3>

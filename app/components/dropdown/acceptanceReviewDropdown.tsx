@@ -24,7 +24,6 @@ const AcceptanceReviewDropdown = ({
     >
       <div className="flex flex-col items-start gap-3 md:gap-0 md:flex-row md:justify-between md:items-center">
         <div className="flex flex-col items-start md:flex-row gap-3 md:gap-12">
-          <Badge text={"1기"} textColor={"white"} />
           <div className="flex flex-col gap-4 md:gap-5">
             <h3 className="text-body1_m md:text-h4_sb text-text1">{title}</h3>
             <div className="flex flex-col gap-2 md:flex-row md:gap-[44px]">

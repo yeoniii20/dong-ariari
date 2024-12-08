@@ -23,7 +23,7 @@ const RecruitmentBottomBar = () => {
   }, [isScrap]);
 
   return (
-    <div className="flex w-full space-x-3 mt-10">
+    <div className="flex bg-white w-full space-x-3">
       {/* 작은 버튼들은 고정된 크기를 유지 */}
       <div className="flex-shrink-0">
         <SahreBtn onClick={() => {}} />

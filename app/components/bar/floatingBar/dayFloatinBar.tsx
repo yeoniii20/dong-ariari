@@ -57,12 +57,14 @@ const DayFloatingBar = ({ deadline }: DayFloatingBarProps) => {
       >
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
-            <p className="text-subtext1 text-body3_m">
+            <p className="text-subtext1 text-mobile_body3_m md:text-body3_m">
               모집 마감까지 남은 시간
             </p>
             <h3 className="text-h3 text-text1">{formattedDeadline}</h3>
           </div>
-          <div className="text-primary text-h1_contents_title">{timeLeft}</div>
+          <div className="text-primary text-mobile_h1_contents_title md:text-h1_contents_title">
+            {timeLeft}
+          </div>
         </div>
       </div>
     </div>
