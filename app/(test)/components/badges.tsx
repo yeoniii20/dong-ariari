@@ -1,6 +1,6 @@
 "use client";
 
-import ReviewBadge from "@/components/badge/reviewBadge";
+import ReviewBadgeList from "@/components/badge/reviewBadgeList";
 import { REVIEW_BADGE_LIST } from "@/data/reviewBadge";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ const Badges = () => {
       <h1>Exploration</h1>
       <div className="flex flex-wrap gap-2">
         {REVIEW_BADGE_LIST.map((item) => (
-          <ReviewBadge
+          <ReviewBadgeList
             key={item.id}
             title={item.title}
             imageUrl={item.imageUrl}
