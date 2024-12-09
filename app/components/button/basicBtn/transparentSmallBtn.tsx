@@ -16,9 +16,9 @@ const TransparentSmallBtn = ({
 }: ButtonWithTextProps) => {
   return (
     <button
-      className={`py-3 px-[18px] md:py-3 md:px-[21px] text-13 md:text-15
-        font-medium text-primary border border-primary focus:bg-aelectedoption_hover
-        bg-aelectedoption_default md:hover:bg-aelectedoption_hover md:focus:bg-aelectedoption_pressed
+      className={`py-2 px-[18px] md:py-3 md:px-[21px] text-13 md:text-15
+        font-medium text-primary border border-primary focus:bg-selectedoption_hover
+        bg-selectedoption_default md:hover:bg-selectedoption_hover md:focus:bg-selectedoption_pressed
         ${round ? "rounded-full" : "rounded-lg"}`}
       onClick={onClick}
     >
