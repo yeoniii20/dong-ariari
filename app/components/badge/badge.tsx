@@ -1,29 +1,24 @@
 import React from "react";
 
 interface BadgeProps {
-  text: string;
-  textColor: "white" | "blue";
+  status: "enable" | "disable";
 }
 
-const Badge = ({ text, textColor }: BadgeProps) => {
+const Badge = ({ status }: BadgeProps) => {
+  const statusVal = status === "enable";
   return (
-    <>
-      {textColor === "white" ? (
-        <div
-          className="bg-primary rounded text-white text-body3_m
-        py-[3px] px-[10px] md:py-1 md:px-[10px]"
-        >
-          {text}
-        </div>
-      ) : (
-        <div
-          className="bg-selectedoption_hover rounded text-primary text-body3_m
-        py-[3px] px-[10px] md:py-1 md:px-[10px]"
-        >
-          {text}
-        </div>
-      )}
-    </>
+    <div className="flex text-center">
+      <div
+        className={`rounded text-mobile_body3_m md:text-body3_m
+        py-[3px] w-[62px] md:py-1 md:w-[66px] ${
+          statusVal
+            ? `text-primary bg-selectedoption_hover`
+            : `text-subtext2 bg-token_bg`
+        }`}
+      >
+        {statusVal ? "모집중" : "모집마감"}
+      </div>
+    </div>
   );
 };
 
