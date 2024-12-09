@@ -2,35 +2,37 @@
 
 import React from "react";
 import Image from "next/image";
+import { REVIEW_BADGE_LIST } from "@/data/reviewBadge";
 
-interface BadgeProps {
-  title: string;
-  imageUrl: string;
-  isSelected: boolean;
-  onClick: () => void;
+interface ReviewBadgeProps {
+  type:
+    | "employment"
+    | "experience"
+    | "health"
+    | "interest"
+    | "relationship"
+    | "selfDevelopment"
+    | "skill";
 }
 
 /**
- *
- * @param title badge 설명 (제목)
- * @param imageUrl 이미지 경로
- * @param isSelected 선택 여부
- * @param onClick 클릭 이벤트 핸들러
- * @returns
+ * ReviewBadge 컴포넌트
+ * @param type 배지 유형
  */
-const ReviewBadge = ({ title, imageUrl, isSelected, onClick }: BadgeProps) => {
+const ReviewBadge = ({ type }: ReviewBadgeProps) => {
+  const badgeData = REVIEW_BADGE_LIST.find((badge) => badge.type === type);
+
+  if (!badgeData) {
+    return null;
+  }
+
+  const { imageUrl, title } = badgeData;
+
   return (
-    <div
-      className={`flex items-center py-[3px] px-2.5 gap-[6px] rounded cursor-pointer md:py-1 ${
-        isSelected
-          ? `border border-selectedoption_border bg-selectedoption_hover`
-          : `bg-selectedoption_default`
-      }`}
-      onClick={onClick}
-    >
+    <div className="flex items-center py-[3px] px-2.5 gap-[6px] rounded bg-selectedoption_default">
       <Image
         src={imageUrl}
-        alt={"badge"}
+        alt={title}
         width={16}
         height={16}
         className="md:w-5 md:h-5"
@@ -43,4 +45,3 @@ const ReviewBadge = ({ title, imageUrl, isSelected, onClick }: BadgeProps) => {
 };
 
 export default ReviewBadge;
-``;
