@@ -39,6 +39,7 @@ const config: Config = {
         button3: "#bfd1e8",
         button_border: "#889cd6",
         black_50: "rgba(0, 0, 0, 0.5)",
+        token_bg: "rgba(166, 166, 166, 0.2)",
         selectedoption_default: "rgba(88, 155, 255, 0.1)",
         selectedoption_hover: "rgba(88, 155, 255, 0.2)",
         selectedoption_pressed: "rgba(88, 155, 255, 0.26)",
