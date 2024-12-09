@@ -1,7 +1,11 @@
+"use client";
+
 import ClubInfoCard from "@/components/card/clubInfoCard";
 import test_image from "@/images/logo/ariari.svg";
 import test_image2 from "@/images/icon/region.svg";
 import test_image3 from "@/images/icon/target.svg";
+import ClubIntroduction from "@/components/card/clubIntroduction";
+import PlusBtn from "@/components/button/withIconBtn/plusBtn";
 
 export const CLUB_PROFILE_DATA = [
   {
@@ -12,6 +16,9 @@ export const CLUB_PROFILE_DATA = [
     region: "서울",
     target: "대학생",
     heartNumber: 25,
+    introductionText: "introductionText",
+    badgeType: "skill" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 B",
@@ -21,6 +28,9 @@ export const CLUB_PROFILE_DATA = [
     region: "부산",
     target: "대학생",
     heartNumber: 15,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 C",
@@ -30,6 +40,9 @@ export const CLUB_PROFILE_DATA = [
     region: "대구",
     target: "직장인",
     heartNumber: 8,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 D",
@@ -39,6 +52,9 @@ export const CLUB_PROFILE_DATA = [
     region: "인천",
     target: "청소년",
     heartNumber: 30,
+    introductionText: "introductionText",
+    badgeType: "interest" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 E",
@@ -48,6 +64,9 @@ export const CLUB_PROFILE_DATA = [
     region: "광주",
     target: "고등학생",
     heartNumber: 12,
+    introductionText: "introductionText",
+    badgeType: "health" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 F",
@@ -57,6 +76,9 @@ export const CLUB_PROFILE_DATA = [
     region: "대전",
     target: "성인",
     heartNumber: 20,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 G",
@@ -66,6 +88,9 @@ export const CLUB_PROFILE_DATA = [
     region: "서울",
     target: "대학생",
     heartNumber: 18,
+    introductionText: "introductionText",
+    badgeType: "selfDevelopment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 H",
@@ -75,6 +100,9 @@ export const CLUB_PROFILE_DATA = [
     region: "부산",
     target: "직장인",
     heartNumber: 10,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 I",
@@ -84,6 +112,9 @@ export const CLUB_PROFILE_DATA = [
     region: "대구",
     target: "청소년",
     heartNumber: 5,
+    introductionText: "introductionText",
+    badgeType: "experience" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 J",
@@ -93,6 +124,9 @@ export const CLUB_PROFILE_DATA = [
     region: "인천",
     target: "고등학생",
     heartNumber: 22,
+    introductionText: "introductionText",
+    badgeType: "health" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 K",
@@ -102,6 +136,9 @@ export const CLUB_PROFILE_DATA = [
     region: "서울",
     target: "대학생",
     heartNumber: 19,
+    introductionText: "introductionText",
+    badgeType: "interest" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 L",
@@ -111,6 +148,9 @@ export const CLUB_PROFILE_DATA = [
     region: "광주",
     target: "성인",
     heartNumber: 25,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 M",
@@ -120,6 +160,9 @@ export const CLUB_PROFILE_DATA = [
     region: "대전",
     target: "고등학생",
     heartNumber: 9,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 N",
@@ -129,6 +172,9 @@ export const CLUB_PROFILE_DATA = [
     region: "부산",
     target: "대학생",
     heartNumber: 11,
+    introductionText: "introductionText",
+    badgeType: "interest" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 O",
@@ -138,6 +184,9 @@ export const CLUB_PROFILE_DATA = [
     region: "대구",
     target: "직장인",
     heartNumber: 16,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 P",
@@ -147,6 +196,9 @@ export const CLUB_PROFILE_DATA = [
     region: "인천",
     target: "청소년",
     heartNumber: 13,
+    introductionText: "introductionText",
+    badgeType: "experience" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 Q",
@@ -156,6 +208,9 @@ export const CLUB_PROFILE_DATA = [
     region: "광주",
     target: "고등학생",
     heartNumber: 21,
+    introductionText: "introductionText",
+    badgeType: "employment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 R",
@@ -165,6 +220,9 @@ export const CLUB_PROFILE_DATA = [
     region: "서울",
     target: "대학생",
     heartNumber: 28,
+    introductionText: "introductionText",
+    badgeType: "relationship" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 S",
@@ -174,6 +232,9 @@ export const CLUB_PROFILE_DATA = [
     region: "부산",
     target: "직장인",
     heartNumber: 14,
+    introductionText: "introductionText",
+    badgeType: "selfDevelopment" as const,
+    clubPageUrl: "/",
   },
   {
     clubName: "동아리 T",
@@ -183,30 +244,51 @@ export const CLUB_PROFILE_DATA = [
     region: "대구",
     target: "청소년",
     heartNumber: 7,
+    introductionText: "introductionText",
+    badgeType: "skill" as const,
+    clubPageUrl: "/",
   },
 ];
 
 const Exploration = () => {
   return (
     <div>
-      <h1>동아리 탐색</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {CLUB_PROFILE_DATA.map((club) => (
-          <ClubInfoCard
-            key={club.clubName}
-            clubName={club.clubName}
-            clubImage={club.clubImage}
-            affiliation={club.affiliation}
-            field={club.field}
-            region={club.region}
-            target={club.target}
-            heartNumber={club.heartNumber}
-          />
-        ))}
+      <div className="flex flex-col gap-5 mt-5 md:mt-8 md:gap-[22px]">
+        <h1 className="text-text1 text-mobile_h1_contents_title md:text-h1_contents_title ">
+          동아리 탐색
+        </h1>
+        <p className="text-subtext2 text-mobile_body2_m md:text-h4">
+          총 100개의 동아리가 있어요.
+        </p>
+      </div>
+      <div className="flex flex-col">
+        <div className="grid grid-cols-1 mt-5 gap-6 md:grid-cols-2 md:gap-[18px] md:mt-2.5">
+          {CLUB_PROFILE_DATA.map((club) => (
+            <div className="flex flex-col gap-[14px] md:gap-[22px] md:mt-[18px]">
+              <ClubInfoCard
+                key={club.clubName}
+                clubName={club.clubName}
+                clubImage={club.clubImage}
+                affiliation={club.affiliation}
+                field={club.field}
+                region={club.region}
+                target={club.target}
+                heartNumber={club.heartNumber}
+                clubPageUrl={club.clubPageUrl}
+              />
+              <ClubIntroduction
+                introductionText={club.introductionText}
+                badgeType={club.badgeType}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="self-center mt-9 mb-[80px] md:mt-10 md:mb-[124px]">
+          <PlusBtn title={"더보기"} onClick={() => {}} />
+        </div>
       </div>
     </div>
   );
 };
 
 export default Exploration;
-``;
