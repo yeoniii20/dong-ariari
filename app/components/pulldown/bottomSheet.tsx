@@ -48,7 +48,7 @@ const BottomSheet = ({
           {optionData.map((item) => (
             <li
               key={item.label}
-              className={`flex items-center p-[10px] text-[15px] cursor-pointer ${
+              className={`flex items-center p-[12.5px] text-[15px] cursor-pointer ${
                 !isSelected
                   ? "text-subtext1"
                   : selectedOptions.includes(item.label)

@@ -20,7 +20,7 @@ const gradientClasses = [
 
 const ClubRankingCard = ({ clubs }: ClubRankingCardProps) => {
   return (
-    <div className="grid grid-cols-1 mb-[18px] md:grid-cols-3 md:gap-4 md:mb-[32px]">
+    <div className="grid grid-cols-1 mt-5 mb-[18px] md:grid-cols-2 md:gap-[18px] lg:grid-cols-3 lg:gap-4 lg:mb-[32px]">
       {clubs.map((club, index) => {
         const gradientClass = `${gradientClasses[index]} text-white mb-[8px]`;
 

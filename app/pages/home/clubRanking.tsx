@@ -59,12 +59,13 @@ const dummyCardData = [
 
 const ClubRanking = () => {
   const isTab = useResponsive("md");
+  const isDesktop = useResponsive("lg");
   const [fieldType, setFieldType] = useState<string[]>([]);
   const [affiliationType, setAffiliationType] = useState<string[]>([]);
   const [showFilter, setShowFilter] = useState<boolean>(false);
 
   return (
-    <section className="py-7 ">
+    <section className="mt-5 mb-12 md:mt-8 md:mb-[68px]">
       <div className="flex justify-between items-center">
         <div className="text-[18px] font-bold md:text-[28px]">
           실시간 동아리 랭킹
@@ -99,15 +100,21 @@ const ClubRanking = () => {
               optionSize="small"
               handleOption={setFieldType}
               selectedOption={fieldType}
+              multiple={true}
             />
           </>
         </div>
       )}
 
-      <div className="py-5">
-        <ClubRankingCard clubs={dummyCardData.slice(0, isTab ? 3 : 1)} />
+      <div>
+        <ClubRankingCard
+          clubs={dummyCardData.slice(0, isDesktop ? 3 : isTab ? 2 : 1)}
+        />
         <ClubRankingList
-          clubs={dummyCardData.slice(isTab ? 3 : 1, isTab ? 10 : 7)}
+          clubs={dummyCardData.slice(
+            isDesktop ? 3 : isTab ? 2 : 1,
+            isDesktop ? 10 : isTab ? 8 : 7
+          )}
         />
       </div>
     </section>

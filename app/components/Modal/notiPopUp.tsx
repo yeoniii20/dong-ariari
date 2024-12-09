@@ -3,10 +3,10 @@ import React from "react";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 
-import schoolIcon from "@/images/icon/popup/school.png";
-import pointIcon from "@/images/icon/popup/point.png";
-import loginIcon from "@/images/icon/popup/login.png";
-import notIcon from "@/images/icon/popup/not.png";
+import schoolIcon from "@/images/icon/popup/school.svg";
+import pointIcon from "@/images/icon/popup/point.svg";
+import loginIcon from "@/images/icon/popup/login.svg";
+import notIcon from "@/images/icon/popup/not.svg";
 import closeIcon from "@/images/icon/close.svg";
 
 type NotiPopUpProps = {
@@ -71,7 +71,7 @@ const NotiPopUp = ({
             </button>
             <button
               onClick={secondButton}
-              className="block mx-auto px-[10px] py-[16px] text-[13px] font-semibold text-primary md:text-[15px]"
+              className="block mx-auto px-4 py-2.5 text-[13px] font-semibold text-primary md:text-[15px]"
             >
               {secondButtonText}
             </button>

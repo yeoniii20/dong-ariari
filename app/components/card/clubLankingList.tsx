@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import no_image from "@/images/noImage/no-image.jpg";
+import useResponsive from "../../../hooks/useResponsive";
 
 interface Club {
   id: number;
@@ -17,19 +18,9 @@ interface ClubRankingListProps {
 
 const ClubRankingList = ({ clubs }: ClubRankingListProps) => {
   return (
-    <div
-      className="overflow-x-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-300 
-    [&::-webkit-scrollbar]:h-2
-    [&::-webkit-scrollbar-track]:rounded-full
-    [&::-webkit-scrollbar-track]:bg-searchbar
-    [&::-webkit-scrollbar-thumb]:rounded-full
-    [&::-webkit-scrollbar-thumb]:bg-menuborder"
-    >
+    <div className="overflow-x-auto [&::-webkit-scrollbar]:hidden">
       <div
-        className="grid gap-4 mb-[8px]"
-        style={{
-          gridTemplateColumns: "repeat(3, minmax(204px, 1fr))",
-        }}
+        className={`grid gap-4 grid-cols-[repeat(3,minmax(204px,1fr))] md:grid-cols-[repeat(2,minmax(204px,1fr))] lg:grid-cols-[repeat(3,minmax(204px,1fr))]`}
       >
         {clubs.map((club) => (
           <div
