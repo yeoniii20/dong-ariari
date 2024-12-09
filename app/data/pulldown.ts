@@ -37,3 +37,15 @@ export const Target_Type = [
   { id: 3, label: "대학원생" },
   { id: 4, label: "직장인" },
 ];
+
+export const Date_Sort_Type = [
+  { id: 0, label: "정렬 기준" },
+  { id: 1, label: "최신순" },
+  { id: 2, label: "오래된 순" },
+];
+
+export const Popularity_Sort_Type = [
+  { id: 0, label: "정렬 기준" },
+  { id: 1, label: "조회수순" },
+  { id: 2, label: "즐겨찾기순" },
+];

@@ -6,7 +6,7 @@ import uncheckIcon from "@/images/icon/radio_button_unchecked.svg";
 
 interface BottomSheetProps {
   optionData: { id: number; label: string }[];
-  selectedOptions: string[];
+  selectedOptions: string[] | string;
   handleMenuClick: (label: string) => void;
   onClose: () => void;
   multiple?: boolean;
