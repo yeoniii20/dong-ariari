@@ -100,7 +100,6 @@ const ClubRanking = () => {
               optionSize="small"
               handleOption={setFieldType}
               selectedOption={fieldType}
-              multiple={true}
             />
           </>
         </div>
