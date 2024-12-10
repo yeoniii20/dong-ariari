@@ -2,12 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import logo from "@/images/logo/logo.svg";
 import instagram from "@/images/icon/instagram.svg";
 
 const Footer = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const LINKS = [
     { text: "개인정보처리방침", href: "/privacyPolicy" },
@@ -16,7 +17,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full flex justify-center shadow-border bg-white pt-3.5 pb-[28px] md:pt-[68px] md:pb-[92px]">
+    <footer
+      className={`w-full flex justify-center shadow-border
+        bg-white pt-3.5 pb-[28px] md:pt-[68px] md:pb-[92px]
+        ${pathname.includes("recruitment/detail") ? `mb-[84px] md:mb-0` : ``}`}
+    >
       <div className="w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-lx px-4 md:px-5 flex flex-col items-center">
         <div className="flex justify-between items-center w-full">
           <Image
