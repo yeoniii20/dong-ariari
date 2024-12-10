@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NotiPopUp from "../Modal/notiPopUp";
+import NotiPopUp from "../modal/notiPopUp";
 
 interface SubTapProps {
   optionData: { id: number; label: string; number?: number }[];
