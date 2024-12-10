@@ -3,8 +3,8 @@
 import { useState } from "react";
 import MobileButtons from "../components/buttons/mobile_Buttons";
 import PcButtons from "../components/buttons/PC_Buttons";
-import LoginDialog from "@/components/Modal/loginDialog";
-import ProfileSettingModal from "@/components/Modal/profileSetting/profileSettingModal";
+import LoginDialog from "@/components/modal/loginDialog";
+import ProfileSettingModal from "@/components/modal/profileSetting/profileSettingModal";
 
 const TestPage = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(true);
