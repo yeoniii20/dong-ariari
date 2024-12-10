@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import searchIcon from "@/images/icon/search.svg";
 import RecentSearchTermDropdown from "../dropdown/recentSearchTermDropdown";
-import SearchModal from "../modal/searchModal";
+import SearchModal from "../modal_copy/searchModal";
 
 interface SearchInputProps {
   onSearch: (searchTerm: string) => void;
