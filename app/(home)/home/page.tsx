@@ -4,7 +4,7 @@ import PopularRecruitment from "@/pages/home/popularRecruitment";
 
 const Home = () => {
   return (
-    <div className="w-full bg-gray-200">
+    <div className="w-full ">
       <ClubRanking />
       <PopularRecruitment />
       <LatestRecruitment />
