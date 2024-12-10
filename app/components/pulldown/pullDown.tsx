@@ -9,7 +9,7 @@ import SingleSelectOptions from "./singleSelectOptions";
 import MultiSelectOptions from "./multiSelectOptions";
 
 import BottomSheet from "./bottomSheet";
-import NotiPopUp from "../modal_copy/notiPopUp";
+import NotiPopUp from "../modal/notiPopUp";
 
 interface PulldownProps {
   optionData: { id: number; label: string }[];

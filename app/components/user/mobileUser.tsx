@@ -6,7 +6,7 @@ import notification_default from "@/images/icon/notification_default.svg";
 import notification_pressed from "@/images/icon/notification_pressed.svg";
 import notification_unconfirmed from "@/images/icon/notification_unconfirmed.svg";
 import login from "@/images/icon/mobile_login.svg";
-import UserModal from "../modal_copy/userModal";
+import UserModal from "../modal/userModal";
 
 const MobileUser = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
