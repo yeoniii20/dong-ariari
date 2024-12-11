@@ -3,10 +3,11 @@
 import { ButtonWithTextProps } from "@/types/components/button";
 import Image from "next/image";
 import reset from "@/images/icon/reset.svg";
+import trash from "@/images/icon/delete.svg";
 import declaration from "@/images/icon/declaration.svg";
 
 interface BtnType extends ButtonWithTextProps {
-  type: "reset" | "declaration";
+  type: "reset" | "declaration" | "trash";
   size: "large" | "small";
 }
 
@@ -17,6 +18,8 @@ const IconBtn = ({ title, onClick, type, size }: BtnType) => {
         return reset;
       case "declaration":
         return declaration;
+      case "trash":
+        return trash;
       default:
         return null;
     }
