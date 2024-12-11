@@ -5,13 +5,14 @@ import Image from "next/image";
 import arrow from "@/images/icon/arrow.svg";
 import UserDropdown from "../dropdown/userDropdown";
 import { USER_MENU } from "@/data/header";
-import  LoginBtn from "../button/basicBtn/loginBtn";
+import LoginBtn from "../button/basicBtn/loginBtn";
 import Notification from "../button/iconBtn/notification";
+import rabbit from "@/images/profile/rabbit.svg";
 
 const User = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [username, setUsername] = useState<string>("Suyoooi");
+  const [username, setUsername] = useState<string>("백설공주");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
@@ -20,7 +21,7 @@ const User = () => {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    setUsername("Suyoooi");
+    setUsername("백설공주");
   };
 
   useEffect(() => {
@@ -48,8 +49,8 @@ const User = () => {
             hover:bg-hover focus:bg-pressed"
             onClick={toggleDropdown}
           >
-            <div className="rounded-full w-10 h-10 bg-[#CBCBCB]" />
-            <span className="text-sub∆text2 text-base">{username}님</span>
+            <Image src={rabbit} alt={"profile"} width={40} height={40} />
+            <span className="text-subtext2 text-base">{username}님</span>
             <Image src={arrow} alt="arrow" className="pr-2" />
           </button>
           {isDropdownOpen && (
