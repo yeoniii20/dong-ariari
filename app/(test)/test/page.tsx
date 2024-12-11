@@ -7,7 +7,7 @@ import LoginDialog from "@/components/modal/loginDialog";
 import ProfileSettingModal from "@/components/modal/profileSetting/profileSettingModal";
 
 const TestPage = () => {
-  const [isButtonVisible, setIsButtonVisible] = useState(true);
+  const [isButtonVisible, setIsButtonVisible] = useState<boolean>(true);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
 
