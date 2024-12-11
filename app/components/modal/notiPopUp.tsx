@@ -7,11 +7,12 @@ import schoolIcon from "@/images/icon/popup/school.svg";
 import pointIcon from "@/images/icon/popup/point.svg";
 import loginIcon from "@/images/icon/popup/login.svg";
 import notIcon from "@/images/icon/popup/not.svg";
+import deleteIcon from "@/images/icon/popup/delete.svg";
 import closeIcon from "@/images/icon/close.svg";
 
 type NotiPopUpProps = {
   onClose: () => void;
-  icon: "school" | "point" | "login" | "not";
+  icon: "school" | "point" | "login" | "not" | "delete";
   title: string;
   description: string;
   modalType: "button" | "x-button";
@@ -37,6 +38,7 @@ const NotiPopUp = ({
     point: pointIcon,
     login: loginIcon,
     not: notIcon,
+    delete: deleteIcon,
   };
 
   return (
