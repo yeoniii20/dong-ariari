@@ -38,6 +38,7 @@ const config: Config = {
         button2: "#c6d4e8",
         button3: "#bfd1e8",
         button_border: "#889cd6",
+        noti: "#FF3E3E",
         black_50: "rgba(0, 0, 0, 0.5)",
         token_bg: "rgba(166, 166, 166, 0.2)",
         selectedoption_default: "rgba(88, 155, 255, 0.1)",
