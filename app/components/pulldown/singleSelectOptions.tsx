@@ -41,7 +41,7 @@ const SingleSelectOptions = ({
             ${index !== 0 ? "border-t border-menuborder " : ""}
             ${
               selectedOption === item.label
-                ? `border border-primary bg-selectedoption_default mx-[-1.5px]`
+                ? `border border-primary bg-selectedoption_default mx-[-1px]`
                 : `mx-[5px] hover:bg-hover hover:mx-0 hover:text-subtext1`
             }          
             `}
