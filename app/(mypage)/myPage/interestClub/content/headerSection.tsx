@@ -5,11 +5,16 @@ import trash from "@/images/icon/delete.svg";
 import vector from "@/images/icon/backVector.svg";
 import IconBtn from "@/components/button/withIconBtn/IconBtn";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import NotiPopUp from "@/components/modal/notiPopUp";
 
 const HeaderSection = () => {
   const router = useRouter();
 
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   const handleAllDelete = () => {
+    setIsModalOpen(true);
     console.log("전체 삭제");
   };
 
@@ -48,6 +53,19 @@ const HeaderSection = () => {
           onClick={handleAllDelete}
         />
       </div>
+      {isModalOpen && (
+        <NotiPopUp
+          onClose={() => setIsModalOpen(false)}
+          icon="delete"
+          title="관심 동아리 전체 삭제"
+          description={`관심 동아리를 전부 삭제하시겠습니까?`}
+          firstButton={() => {}}
+          firstButtonText="삭제하기"
+          secondButton={() => setIsModalOpen(false)}
+          secondButtonText="아니요"
+          modalType="button"
+        />
+      )}
     </div>
   );
 };
