@@ -23,11 +23,12 @@ const RecentSearchTermDropdown = ({
   onRemoveSearchItem,
 }: RecentSearchTermDropdownProps) => {
   return (
-    <div className="absolute left-0 right-0 mt-2 bg-background rounded-xl shadow-default">
+    <div className="absolute z-50 left-0 right-0 mt-2 bg-background rounded-xl shadow-default">
       {recentSearches.map((search, index) => (
         <div
           key={index}
-          className={`flex justify-between items-center px-3 md:px-[22px] py-2.5 md:py-[14px] hover:bg-hover text-sm md:text-base cursor-pointer focus:bg-pressed 
+          className={`flex justify-between items-center px-3 md:px-[22px] py-2.5 md:py-[14px]
+            hover:bg-hover text-sm md:text-base cursor-pointer focus:bg-pressed 
                 ${index === 0 ? "rounded-t-xl" : ""} 
                 ${index === recentSearches.length - 1 ? "rounded-b-xl" : ""}`}
           onMouseDown={(e) => e.preventDefault()}
