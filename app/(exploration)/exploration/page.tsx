@@ -18,7 +18,7 @@ const Exploration = () => {
         </p>
       </div>
       <div className="flex flex-col">
-        <div className="grid grid-cols-1 mt-5 gap-6 md:grid-cols-2 md:gap-[18px] md:mt-2.5">
+        <div className="grid grid-cols-1 mt-5 gap-6 md:grid-cols-2 md:gap-[18px] md:mt-7">
           {CLUB_PROFILE_DATA.map((club) => (
             <div
               key={club.id}
