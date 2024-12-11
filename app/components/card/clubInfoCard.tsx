@@ -53,7 +53,7 @@ const ClubInfoCard = ({
 
   return (
     <div className="flex justify-between items-center">
-      <div className="flex gap-4 items-center md:gap-5">
+      <div className="flex gap-4 items-center py-[6px] md:gap-5">
         <Image
           src={clubImage}
           alt={"club_profile"}
