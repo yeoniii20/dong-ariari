@@ -1,4 +1,4 @@
-import { ListSectionProps } from "@/(mypage)/myPage/myPoint/content/listCard";
+import { ListSectionProps } from "@/types/components/point";
 
 export const POINT_DATA_LIST: ListSectionProps[] = [
   { date: "2024-01-01", title: "회원 가입 했으니까", point: 50 },
