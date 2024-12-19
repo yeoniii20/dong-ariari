@@ -1,9 +1,13 @@
-import ListCard, { ListSectionProps } from "./listCard";
+import PointList from "@/components/list/pointList";
+import { ListSectionProps } from "@/types/components/point";
 
 const ListSection = ({
   dataList = [],
   isLast,
-}: { dataList?: ListSectionProps[] } & { isLast: boolean }) => {
+}: {
+  dataList?: ListSectionProps[];
+  isLast: boolean;
+}) => {
   return (
     <div>
       {dataList.map((data, index) => (
@@ -11,11 +15,11 @@ const ListSection = ({
           key={index}
           className={`${index === dataList.length - 1 ? "border-b-2" : ""}`}
         >
-          <ListCard
+          <PointList
             date={data.date}
             title={data.title}
             point={data.point}
-            isLast={isLast}
+            isLast={index === dataList.length - 1 && isLast}
           />
         </div>
       ))}
