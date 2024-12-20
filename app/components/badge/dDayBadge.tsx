@@ -1,24 +1,25 @@
+import { calculateRemainingDays } from "@/utils/dateFormatter";
+
 interface DayBadgeProps {
   date: string;
 }
 
-const calculateRemainingDays = (date: string): string => {
-  const today = new Date();
-  const targetDate = new Date(date);
-  const differenceInTime = targetDate.getTime() - today.getTime();
-  const remainingDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
-
-  return remainingDays < 0 ? "마감" : `D - ${remainingDays}`;
-};
-
 const DdayBadge = ({ date }: DayBadgeProps) => {
+  const remainingDaysText = calculateRemainingDays(date);
+  const isExpired = remainingDaysText === "마감";
+
   return (
     <div
-      className="flex py-1 px-3 rounded-20 bg-black_50 backdrop-blur-sm
-           md:py-[6px]"
+      className={`flex py-1 px-3 rounded-20 backdrop-blur-sm bg-black_50 ${
+        isExpired ? "bg-opacity-50" : ""
+      } md:py-[6px]`}
     >
-      <p className="text-mobile_body3_sb text-background md:text-body1_sb">
-        {calculateRemainingDays(date)}
+      <p
+        className={`text-mobile_body3_sb md:text-body1_sb ${
+          isExpired ? "text-white" : "text-background"
+        }`}
+      >
+        {remainingDaysText}
       </p>
     </div>
   );
