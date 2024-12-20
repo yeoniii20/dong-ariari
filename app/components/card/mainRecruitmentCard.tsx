@@ -4,12 +4,14 @@ import { MainRecruitmentCardProps } from "@/types/components/card";
 import DdayBadge from "../badge/dDayBadge";
 import { MdBookmark } from "react-icons/md";
 import { calculateRemainingDays } from "@/utils/dateFormatter";
+import { useRouter } from "next/navigation";
 
 interface CardProps {
   data: MainRecruitmentCardProps[];
 }
 
 const MainRecruitmentCard = ({ data }: CardProps) => {
+  const router = useRouter();
   const [cardData, setCardData] = useState<MainRecruitmentCardProps[]>(data);
 
   const toggleScrap = (index: number) => {
@@ -24,17 +26,22 @@ const MainRecruitmentCard = ({ data }: CardProps) => {
     return null;
   }
 
+  const handleRouter = () => {
+    // 경로 임시 설정
+    router.push("/");
+  };
+
   return (
     <>
       {cardData.map((item, index) => {
         const isExpired = calculateRemainingDays(item.date) === "마감";
-
         return (
           <div
             key={index}
-            className={`flex gap-4 md:gap-5 md:flex-col ${
+            className={`flex gap-4 md:gap-5 md:flex-col cursor-pointer ${
               isExpired ? "opacity-50 backdrop-filter backdrop-blur-md" : ""
             }`}
+            onClick={handleRouter}
           >
             <div className="relative min-w-[114px] md:w-full">
               <Image
