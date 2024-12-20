@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <header
       className={`w-full justify-center bg-background pt-[14px] md:pt-7 ${
-        isHiddenPath ? "hidden" : "flex"
+        isHiddenPath ? "hidden md:flex" : "flex"
       }`}
     >
       <div className="w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-lx px-4 md:px-5 space-y-8">
