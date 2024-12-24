@@ -58,8 +58,10 @@ const config: Config = {
         lx: "1288px",
       },
       borderRadius: {
+        20: "20px",
         28: "28px",
         30: "30px",
+        36: "36px",
         48: "48px",
         56: "56px",
         60: "60px",
@@ -68,6 +70,7 @@ const config: Config = {
         28: "28px",
         19: "19px",
         15: "15px",
+        14: "14px",
         13: "13px",
         10: "10px",
         h1_contents_title: ["24px", { fontWeight: 600 }],
